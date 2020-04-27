@@ -40,5 +40,4 @@ function isolateDuplicates(text) {
 }
 
 module.exports = isolateDuplicates;
-// console.log(isolateDuplicates());
 
