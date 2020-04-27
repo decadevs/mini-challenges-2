@@ -69,6 +69,8 @@ try{
              finalStr=finalStr + similarStrSequence[i]
          }
 
+         i+=1
+
      }
 
 
