@@ -14,7 +14,6 @@ function isolateDuplicates(str) {
       count = 1;
     }
   }
-
   for (let i = 0; i < freq.length; i++) {
     let str = "";
     for (let j = 0; j < freq[i]; j++) {
