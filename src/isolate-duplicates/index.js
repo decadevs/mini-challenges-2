@@ -3,7 +3,7 @@ function isolateDuplicates(text) {
     1.  put in a try block to catch unexpected error
         2.  loop through str and seperate according to similar characters not minding cases
         3.  define finalStr as empty str
-        4.  define countDuplicate as 0
+        4.  define countDuplicate as 0, pair as empty str, evaluator as empty str
         5.  loop through seperated sequence
         6.  for each sequence of similar characters
             1.  if the length of the characters in the sequence > 1
@@ -27,6 +27,10 @@ try{
     let similarStrSequence = [];
     let firstItem = "";
     let secondItem = "";
+    let finalStr="";
+    let countDuplicate=0
+    let evaluator=""
+    let pair=""
      for (let i = 0; i < str.length; i++) {
        firstItem = str[i].toLowerCase();
        if (str[i + 1]) {
@@ -43,7 +47,9 @@ try{
        }
      }
 
-     
+
+
+
 
 
 }
