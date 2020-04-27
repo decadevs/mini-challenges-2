@@ -63,6 +63,10 @@ try{
                  finalStr=finalStr + pair + "[" + duplicate + "]"
                  countDuplicate+=1
              }
+
+         }
+         else{
+             finalStr=finalStr + similarStrSequence[i]
          }
 
      }
