@@ -49,7 +49,7 @@ try{
 
      let i=0;
      let j=0;
-     if(text.length>0){
+     if(text.length>0 && typeof(text)==='string'){
         while(i<similarStrSequence.length){
             if(similarStrSequence[i].length>1){
                 duplicate=similarStrSequence[i].substr(2,similarStrSequence[i].length)
