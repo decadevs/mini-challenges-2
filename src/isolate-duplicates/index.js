@@ -58,6 +58,11 @@ try{
                  //this means no duplicate found
                  finalStr=finalStr+ pair
              }
+             else{
+                 //duplicate was found
+                 finalStr=finalStr + pair + "[" + duplicate + "]"
+                 countDuplicate+=1
+             }
          }
 
      }
