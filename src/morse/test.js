@@ -31,7 +31,7 @@ describe("Morse spec", () => {
     expect(
       morseToText(
         "...-..- ..... .-.-.- ----- --...   .--. . .-.    -... --- - - .-.. ."
-      ).toBe("$5.07 per bottle")
+      ).toBe("$5.07 PER BOTTLE")
     );
 
     expect(morseToText("..- .-... ..").toBe("U&I"));
