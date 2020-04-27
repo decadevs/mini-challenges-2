@@ -23,6 +23,28 @@ function isolateDuplicates(text) {
 */
 
 try{
+    let similarStr = "";
+    let similarStrSequence = [];
+    let firstItem = "";
+    let secondItem = "";
+     for (let i = 0; i < str.length; i++) {
+       firstItem = str[i].toLowerCase();
+       if (str[i + 1]) {
+         secondItem = str[i + 1].toLowerCase();
+       } else {
+         secondItem = "";
+       }
+       if (firstItem === secondItem) {
+         similarStr += str[i];
+       } else {
+         similarStr += str[i];
+         similarStrSequence.push(similarStr);
+         similarStr = "";
+       }
+     }
+
+     
+
 
 }
 catch(err){
