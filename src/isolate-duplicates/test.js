@@ -43,7 +43,7 @@ describe("Find Duplicates", () => {
     ]);
     expect(isolateDuplicates("HEEEELLLLLOOOOOOOTHHHHHEEEEERRRREEE")).toEqual([
       "HEE[EE]LL[LLL]OO[OOOOO]THH[HHH]EE[EEE]RRRREE[E]",
-      5,
+      6,
     ]);
     expect(
       isolateDuplicates(
