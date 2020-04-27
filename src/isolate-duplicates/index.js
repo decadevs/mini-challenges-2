@@ -29,7 +29,7 @@ try{
     let secondItem = "";
     let finalStr="";
     let countDuplicate=0
-    let evaluator=""
+    let duplicate=""
     let pair=""
      for (let i = 0; i < str.length; i++) {
        firstItem = str[i].toLowerCase();
@@ -51,7 +51,7 @@ try{
      let j=0;
      while(i<similarStrSequence.length){
          if(similarStrSequence[i].length>1){
-             evaluator=similarStrSequence[i].substr(2,similarStrSequence[i].length)
+             duplicate=similarStrSequence[i].substr(2,similarStrSequence[i].length)
              pair=similarStrSequence[i][0]+similarStrSequence[i][1]
          }
      }
