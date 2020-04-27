@@ -29,10 +29,12 @@ describe("Morse spec", () => {
 
   test("It decodes special characters", () => {
     expect(
-      morseToText("...-..- ..... .-.-.- ----- --...   .--. . .-.    -... --- - - .-.. .").toBe("$5.07 PER BOTTLE")
-    );
+      morseToText(
+        "...-..- ..... .-.-.- ----- --...   .--. . .-.    -... --- - - .-.. ."
+      )
+    ).toBe("$5.07 PER BOTTLE");
 
-    expect(morseToText("..- .-... ..").toBe("U&I"));
+    expect(morseToText("..- .-... ..")).toBe("U&I");
   });
 
   test("it decodes letters with multiple spaces", () => {
