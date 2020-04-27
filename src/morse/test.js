@@ -34,7 +34,7 @@ describe("Morse spec", () => {
       )
     ).toBe("$5.07 PER BOTTLE");
 
-    expect(morseToText("..- .-... ..").toBe("U&I"));
+    expect(morseToText("..- .-... ..")).toBe("U&I");
   });
 
   test("it decodes letters with multiple spaces", () => {
