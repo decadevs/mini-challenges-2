@@ -31,17 +31,17 @@ try{
     let countDuplicate=0
     let duplicate=""
     let pair=""
-     for (let i = 0; i < str.length; i++) {
-       firstItem = str[i].toLowerCase();
-       if (str[i + 1]) {
-         secondItem = str[i + 1].toLowerCase();
+     for (let i = 0; i<text.length; i++) {
+       firstItem = text[i].toLowerCase();
+       if (text[i+1]) {
+         secondItem = text[i+1].toLowerCase();
        } else {
          secondItem = "";
        }
        if (firstItem === secondItem) {
-         similarStr += str[i];
+         similarStr += text[i];
        } else {
-         similarStr += str[i];
+         similarStr += text[i];
          similarStrSequence.push(similarStr);
          similarStr = "";
        }
@@ -49,29 +49,34 @@ try{
 
      let i=0;
      let j=0;
-     while(i<similarStrSequence.length){
-         if(similarStrSequence[i].length>1){
-             duplicate=similarStrSequence[i].substr(2,similarStrSequence[i].length)
-             pair=similarStrSequence[i][0]+similarStrSequence[i][1]
+     if(text.length>0){
+        while(i<similarStrSequence.length){
+            if(similarStrSequence[i].length>1){
+                duplicate=similarStrSequence[i].substr(2,similarStrSequence[i].length)
+                pair=similarStrSequence[i][0]+similarStrSequence[i][1]
 
-             if(duplicate.length===0){
-                 //this means no duplicate found
-                 finalStr=finalStr+ pair
-             }
-             else{
-                 //duplicate was found
-                 finalStr=finalStr + pair + "[" + duplicate + "]"
-                 countDuplicate+=1
-             }
+                if(duplicate.length===0){
+                    //this means no duplicate found
+                    finalStr=finalStr+ pair
+                }
+                else{
+                    //duplicate was found
+                    finalStr=finalStr + pair + "[" + duplicate + "]"
+                    countDuplicate+=1
+                }
 
-         }
-         else{
-             finalStr=finalStr + similarStrSequence[i]
-         }
+            }
+            else{
+                finalStr=finalStr + similarStrSequence[i]
+            }
 
-         i+=1
+            i+=1
 
-     }
+        }
+    }
+    else{
+        return "Please enter a valid string";
+    }
 
      return [finalStr,countDuplicate]
 }
