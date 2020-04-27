@@ -47,6 +47,15 @@ try{
        }
      }
 
+     let i=0;
+     let j=0;
+     while(i<similarStrSequence.length){
+         if(similarStrSequence[i].length>1){
+             evaluator=similarStrSequence[i].substr(2,similarStrSequence[i].length)
+             pair=similarStrSequence[i][0]+similarStrSequence[i][1]
+         }
+     }
+
 
 
 
