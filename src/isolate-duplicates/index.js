@@ -1,10 +1,3 @@
-// function isolateDuplicates(text) {
-//   let str = "";
-//   for (let i = 0; i < text.length; i++) {}
-// }
-
-// module.exports = isolateDuplicates;
-
 function isolateDuplicates(str) {
   let tempArr = str.split("");
   let letters = [];
@@ -35,10 +28,4 @@ function isolateDuplicates(str) {
   }
   return new Array(text, freq.filter((num) => num > 2).length);
 }
-
-console.log(
-  isolateDuplicates(
-    "TttTTTTttttTTTTTTIIIIIiiiiiiiSSSSSSSSSTTTTAAAAAAAAAaaaaaaaaaSSSSSSSSSSKKKKKkkkkkk"
-  )
-);
 module.exports = isolateDuplicates;
