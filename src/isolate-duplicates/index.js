@@ -73,20 +73,12 @@ try{
 
      }
 
-
-
-
-
-
+     return [finalStr,countDuplicate]
 }
 catch(err){
     return "Please enter a valid string"
+}                                
 
-
-}
-
-
-                                 
 }
 
 module.exports = isolateDuplicates;
