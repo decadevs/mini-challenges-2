@@ -21,7 +21,17 @@ function isolateDuplicates(text) {
         7. return finalStr,countDuplicate
     2. Catch error        
 */
-    
+
+try{
+
+}
+catch(err){
+    return "Please enter a valid string"
+
+
+}
+
+
                                  
 }
 
