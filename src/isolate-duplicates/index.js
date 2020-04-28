@@ -41,6 +41,4 @@ function isolateDuplicates(text) {
     return newArray;
 }
 
-//let text = [];
-//isolateDuplicates(text);
 module.exports = isolateDuplicates;
