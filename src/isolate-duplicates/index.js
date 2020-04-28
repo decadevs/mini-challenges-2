@@ -29,11 +29,8 @@ function isolateDuplicates(text) {
     finalOutput.push(output.join(""), duplicates);
 
     return finalOutput;
-  }
-  if (typeof text === "object") {
-    return "Please enter a valid string";
   } else {
-    return " ";
+    return "Please enter a valid string";
   }
 }
 
