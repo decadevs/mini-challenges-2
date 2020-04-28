@@ -100,6 +100,7 @@ function removeDuplicates(obj) {
 
         removedIntersect.push(nonIntersect)
     }
+    return removedIntersect
 }
 
 module.exports = removeDuplicates;
