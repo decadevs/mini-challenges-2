@@ -59,24 +59,31 @@ const MORSE_CODE = {
 Object.freeze(MORSE_CODE);
 
 function morse(text) {
+
+  if(typeof text === 'undefined') throw ''
+  if(typeof text !== 'string') throw 'Please provide a morse string'
   let str = ''
-  let phrase = text.split('   ')
+  let phrase = text.trim().split('   ')
   let sentence = ''
+
 for(let word of phrase){
     for(let character of word){
         if(character && character !== ' '){
             str += character
-        }else if(character && character == ' '){
+        }else if(character && character == ' ' && str.length > 0){
             sentence += MORSE_CODE[str.trim()]
             str = ''
         }
            
     }
-    sentence += MORSE_CODE[str.trim()] + ' '
-    str = ''
+    if(str.length > 0){
+      sentence += MORSE_CODE[str.trim()] + ' '
+      str = ''
+    }
+    
  } 
 //sentence += MORSE_CODE[str]
-return sentence
+return sentence.trim()
 }
 
 module.exports = morse;
