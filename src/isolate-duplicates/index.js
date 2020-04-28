@@ -23,33 +23,39 @@ function isolateDuplicates(text) {
 */
 
 try{
-    let similarStr = "";
-    let similarStrSequence = [];
-    let firstItem = "";
-    let secondItem = "";
-    let finalStr="";
-    let countDuplicate=0
-    let duplicate=""
-    let pair=""
-     for (let i = 0; i<text.length; i++) {
-       firstItem = text[i].toLowerCase();
-       if (text[i+1]) {
-         secondItem = text[i+1].toLowerCase();
-       } else {
-         secondItem = "";
-       }
-       if (firstItem === secondItem) {
-         similarStr += text[i];
-       } else {
-         similarStr += text[i];
-         similarStrSequence.push(similarStr);
-         similarStr = "";
-       }
-     }
+    if(typeof(text)!=='string'){
+        throw "Please enter a valid string"
+    }
+    if(text==='undefined'){
+        throw ""
+    }
+    if(typeof(text)==='string'){
+        let similarStr = "";
+        let similarStrSequence = [];
+        let firstItem = "";
+        let secondItem = "";
+        let finalStr="";
+        let countDuplicate=0
+        let duplicate=""
+        let pair=""
+        for (let i = 0; i<text.length; i++) {
+            firstItem = text[i].toLowerCase();
+            if (text[i+1]) {
+                secondItem = text[i+1].toLowerCase();
+            } else {
+                secondItem = "";
+            }
+            if (firstItem === secondItem) {
+                similarStr += text[i];
+            } else {
+                similarStr += text[i];
+                similarStrSequence.push(similarStr);
+                similarStr = "";
+            }
+        }
 
-     let i=0;
-     let j=0;
-     if(text.length>0 && typeof(text)==='string'){
+        let i=0;
+        let j=0;
         while(i<similarStrSequence.length){
             if(similarStrSequence[i].length>1){
                 duplicate=similarStrSequence[i].substr(2,similarStrSequence[i].length)
@@ -60,7 +66,7 @@ try{
                     finalStr=finalStr+ pair
                 }
                 else{
-                    //duplicate was found
+                            //duplicate was found
                     finalStr=finalStr + pair + "[" + duplicate + "]"
                     countDuplicate+=1
                 }
@@ -68,22 +74,17 @@ try{
             }
             else{
                 finalStr=finalStr + similarStrSequence[i]
-            }
+                }
 
             i+=1
 
+            }
+        return [finalStr, countDuplicate]
         }
-    }
-    else{
-        return "Please enter a valid string";
-    }
-
-     return [finalStr,countDuplicate]
-}
-catch(err){
-    return "Please enter a valid string"
-}                                
-
+    }   
+    catch(err){
+        throw err;
+        }
 }
 
 module.exports = isolateDuplicates;
