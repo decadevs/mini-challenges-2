@@ -1,39 +1,40 @@
 function isolateDuplicates(text) {
-  let strToArr = Array.from(text);
-  let output = [];
-  let bracketCheck = [];
-  let duplicates = 0;
-  let finalOutput = [];
-  const bracketIsopen = (bracketCheck) => {
-    if (bracketCheck.length > 0) {
-      return true;
-    }
+  if (typeof text === "string") {
+    let strToArr = Array.from(text);
+    let strUpperCase = Array.from(text.toUpperCase());
+    let output = [];
+    let duplicates = 0;
+    let finalOutput = [];
 
-    return false;
-  };
-
-  for (let i = 0; i < text.length; i++) {
-    if (strToArr[i] !== strToArr[i - 1] || strToArr[i] !== strToArr[i - 2]) {
-      output.push(strToArr[i]);
-    } else {
-      if (!bracketIsopen(bracketCheck)) {
-        bracketCheck.push("[");
-        output.push("[");
+    for (let i = 0; i < text.length; i++) {
+      if (
+        strUpperCase[i] !== strUpperCase[i - 1] ||
+        strUpperCase[i] !== strUpperCase[i - 2]
+      ) {
         output.push(strToArr[i]);
+        if (
+          strUpperCase[i] === strUpperCase[i - 1] &&
+          strUpperCase[i] === strUpperCase[i + 1]
+        ) {
+          output.push("[");
+          duplicates++;
+        }
       } else {
         output.push(strToArr[i]);
-        if (strToArr[i] !== strToArr[i + 1]) {
-          duplicates = duplicates + 1;
+        if (strUpperCase[i + 1] !== strUpperCase[i]) {
           output.push("]");
-          bracketCheck.pop();
         }
       }
     }
+    finalOutput.push(output.join(""), duplicates);
+
+    return finalOutput;
   }
-
-  finalOutput.push(output.join(""), duplicates);
-
-  return finalOutput;
+  if (typeof text === "object") {
+    return "Please enter a valid string";
+  } else {
+    return " ";
+  }
 }
 
 module.exports = isolateDuplicates;
