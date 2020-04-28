@@ -63,13 +63,13 @@ function morse(text) {
     throw "Please provide a morse string";
   }
 
-  var words = text.trim().split("   ");
-  var string = "";
+  let words = text.trim().split("   ");
+  let string = "";
 
-  for (var i in words) {
+  for (let i in words) {
     if (words[i] !== "") {
-      var word = words[i].split(" ");
-      for (var j in word) {
+      let word = words[i].split(" ");
+      for (let j in word) {
         if (word[j] !== "") {
           string += MORSE_CODE[word[j]];
         }
