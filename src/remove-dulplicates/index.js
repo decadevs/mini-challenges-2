@@ -78,7 +78,15 @@ function removeDuplicates(obj) {
         if(othersStartPos===noDuplicate.length){
             removedIntersect.push(currentNoDuplicate)
         }
-        
+        else{
+            while(othersStartPos<noDuplicate.length){
+                othersNoDuplicate.push(noDuplicate[othersStartPos])
+                othersStartPos+=1
+            }
+
+            
+        }
+
 
     }
 
