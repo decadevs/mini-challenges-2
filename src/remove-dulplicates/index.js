@@ -1,5 +1,6 @@
 function removeDuplicates(obj) {
 
+
     /* Steps to removing duplicates
         1. Remove duplicate item from each Array
             a. first define a function with parameter of the array to remove duplicate from, and a callback function
@@ -37,13 +38,29 @@ function removeDuplicates(obj) {
 
         4. loop through keys and make each of the array in removedIntersect the value
 
-        
-                
-                    
-
-
-
     */
+
+    function removeDuplicate(array,callback){
+        let filteredArray;
+        let arrayNoDuplicate = []
+        for (let i = 0; i < array.length; i++) {
+            function callback(j) {
+                filteredArray = array.filter(a => a === j)
+                if (filteredArray.length < 2) {//no duplicate
+                    arrayNoDuplicate.push(j)
+                }
+                else {
+                    if (!arrayNoDuplicate.includes(j)) {
+                        arrayNoDuplicate.push(j)
+                    }
+                }
+            }
+            callback(array[i])
+        }
+        return arrayNoDuplicate
+    }
+
+    
 }
 
 module.exports = removeDuplicates;
