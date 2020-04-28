@@ -57,8 +57,10 @@ function removeDuplicates(obj) {
             }
             callback(array[i])
         }
+        console.log(arrayNoDuplicate)
         return arrayNoDuplicate
     }
+
 
     let objKeys = Object.keys(obj)
 
@@ -68,13 +70,15 @@ function removeDuplicates(obj) {
         noDuplicate.push(removeDuplicate(obj[objKeys[j]]))
     }
 
+    console.log(noDuplicate)
+
     let removedIntersect=[]
     for(let i=0;i<noDuplicate.length;i++){
         let nonIntersect=[]
         let currentNoDuplicate=noDuplicate[i]
         let othersNoDuplicate=[]
         let othersStartPos=i+1
-
+        console.log(othersStartPos)
         if(othersStartPos===noDuplicate.length){
             removedIntersect.push(currentNoDuplicate)
         }
@@ -83,11 +87,10 @@ function removeDuplicates(obj) {
                 othersNoDuplicate.push(noDuplicate[othersStartPos])
                 othersStartPos+=1
             }
-
             for(let j=0;j<currentNoDuplicate.length;j++){
                 let count=0
                 for(let x=0;x<othersNoDuplicate.length;x++){
-                    if(!othersNoDuplicate.includes(currentNoDuplicate[j])){
+                    if(!othersNoDuplicate[x].includes(currentNoDuplicate[j])){
                         count+=1
                     }
                 }
@@ -111,5 +114,16 @@ function removeDuplicates(obj) {
 
     return removedIntersectObj
 }
+
+const arrayWithDuplicate = {
+    "1": ["C", "F", "G"],
+    "2": ["A", "B", "C"],
+    "3": ["A", "B", "D"],
+};
+
+
+console.log(removeDuplicates(arrayWithDuplicate))
+
+
 
 module.exports = removeDuplicates;
