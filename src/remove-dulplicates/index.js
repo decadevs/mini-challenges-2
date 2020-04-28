@@ -84,7 +84,20 @@ function removeDuplicates(obj) {
                 othersStartPos+=1
             }
 
-            
+            for(let j=0;j<currentNoDuplicate.length;j++){
+                let count=0
+                for(let x=0;x<othersNoDuplicate.length;x++){
+                    if(!othersNoDuplicate.includes(currentNoDuplicate[j])){
+                        count+=1
+                    }
+                }
+
+                if(count===othersNoDuplicate.length){
+                    nonIntersect.push(currentNoDuplicate[j])
+                }
+            }
+
+
         }
 
 
