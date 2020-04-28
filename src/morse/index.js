@@ -59,7 +59,6 @@ const MORSE_CODE = {
 Object.freeze(MORSE_CODE);
 
 function morse(text) {
-  let spaceCount = 1;
   let outCome = '';
   let start = 0;
 
@@ -74,17 +73,6 @@ function morse(text) {
     if(text.indexOf(' ') > 0){
       for(let i = 0; i < text.length; i++){
 
-        // if(text[i] === ' ' && text[i + 1] === ' '){
-        //   spaceCount++;
-
-        //   if(spaceCount === 3){
-        //     outCome += MORSE_CODE[text.slice(start, i - 1).trim()];
-        //     spaceCount = 1;
-        //     start = i + 2;
-        //     outCome += ' ';
-        //   }
-
-        // }
         if(text[i] === ' ' && text[i - 1] === ' ' && text[i + 1] !== ' '){
           outCome += MORSE_CODE[text.slice(start, i - 2)];
           start = i + 1;
@@ -104,7 +92,7 @@ function morse(text) {
 
       }
 
-      console.log(outCome);
+      return(outCome);
 
     }
 
@@ -112,5 +100,5 @@ function morse(text) {
 
 }
 
-morse("...-..- ..... .-.-.- ----- --...   .--. . .-.    -... --- - - .-.. .");
+
 module.exports = morse;

@@ -30,7 +30,7 @@ describe("Morse spec", () => {
   test("It decodes special characters", () => {
     expect(
       morseToText(
-        "...-..- ..... .-.-.- ----- --...   .--. . .-.    -... --- - - .-.. ."
+        "...-..- ..... .-.-.- ----- --...   .--. . .-.   -... --- - - .-.. ."
       )
     ).toBe("$5.07 PER BOTTLE");
 
