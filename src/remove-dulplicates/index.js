@@ -60,7 +60,20 @@ function removeDuplicates(obj) {
         return arrayNoDuplicate
     }
 
+    let objKeys = Object.keys(obj)
+
+    //remove duplicates from obj
+    let noDuplicate = []
+    for (let j = 0; j < objKeys.length; j++) {
+        noDuplicate.push(removeDuplicate(obj[objKeys[j]]))
+    }
+
     
+
+
+
+
+
 }
 
 module.exports = removeDuplicates;
