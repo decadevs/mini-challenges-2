@@ -96,17 +96,10 @@ function removeDuplicates(obj) {
                     nonIntersect.push(currentNoDuplicate[j])
                 }
             }
-
-
         }
 
-
+        removedIntersect.push(nonIntersect)
     }
-
-
-
-
-
 }
 
 module.exports = removeDuplicates;
