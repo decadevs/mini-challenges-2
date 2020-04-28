@@ -19,11 +19,10 @@ function isolateDuplicates(text) {
           else{
             arrayOfCharacter+=text1[i]
            }
-           console.log(arrayOfDuplicate)
         }
         noOfArrayOfDuplicate
-        console.log(arrayOfDuplicate)
         if(arrayOfDuplicate.length>0){
+           arrayOfCharacter+="["+arrayOfDuplicate+"]"
           noOfArrayOfDuplicate++
         }
         return [arrayOfCharacter,noOfArrayOfDuplicate]
