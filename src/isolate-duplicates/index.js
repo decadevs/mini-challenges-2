@@ -30,7 +30,7 @@ function isolateDuplicates(text) {
 
     return finalOutput;
   } else {
-    return "Please enter a valid string";
+    throw "Please enter a valid string";
   }
 }
 

@@ -59,24 +59,25 @@ const MORSE_CODE = {
 Object.freeze(MORSE_CODE);
 
 function morse(text) {
-  if (typeof text !== "string") {
-    return "Please provide a morse string";
-  }
-  let convertedArr = [];
-  let arrFromMorse = Array.from(text.split(" "));
+  if (typeof text === "string") {
+    let convertedArr = [];
+    let arrFromMorse = Array.from(text.split(" "));
 
-  for (let i = 0; i < arrFromMorse.length; i++) {
-    if (arrFromMorse[i] !== "") {
-      convertedArr.push(MORSE_CODE[arrFromMorse[i]]);
-      if (arrFromMorse[i + 1] === "" && arrFromMorse[i + 2] === "") {
-        convertedArr.push(" ");
+    for (let i = 0; i < arrFromMorse.length; i++) {
+      if (arrFromMorse[i] !== "") {
+        convertedArr.push(MORSE_CODE[arrFromMorse[i]]);
+        if (arrFromMorse[i + 1] === "" && arrFromMorse[i + 2] === "") {
+          convertedArr.push(" ");
+        }
       }
     }
+    if (convertedArr[convertedArr.length - 1] === " ") {
+      convertedArr.pop();
+    }
+    return convertedArr.join("");
+  } else {
+    throw "Please provide a morse string";
   }
-  if (convertedArr[convertedArr.length - 1] === " ") {
-    convertedArr.pop();
-  }
-  return convertedArr.join("");
 }
 
 module.exports = morse;
