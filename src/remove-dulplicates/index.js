@@ -100,7 +100,16 @@ function removeDuplicates(obj) {
 
         removedIntersect.push(nonIntersect)
     }
-    return removedIntersect
+
+    let removedIntersectObj = {}
+    for (let p = 0; p < objKeys.length; p++) {
+        removedIntersectObj[objKeys[p]] = removedIntersect[p]
+
+    }
+
+    //final step, loop through keys and make removed Intersect the values
+
+    return removedIntersectObj
 }
 
 module.exports = removeDuplicates;
