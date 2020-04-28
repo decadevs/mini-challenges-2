@@ -68,7 +68,14 @@ function removeDuplicates(obj) {
         noDuplicate.push(removeDuplicate(obj[objKeys[j]]))
     }
 
-    
+    let removedIntersect=[]
+    for(let i=0;i<noDuplicate.length;i++){
+        let nonIntersect=[]
+        let currentNoDuplicate=noDuplicate[i]
+        let othersNoDuplicate=[]
+        let othersStartPos=i+1
+        
+    }
 
 
 
