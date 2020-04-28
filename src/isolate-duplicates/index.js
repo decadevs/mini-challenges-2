@@ -1,5 +1,5 @@
 const isolateDuplicates = (text) => {
-    if (typeof text !== 'string' ) throw new Error ("Please enter a valid string")
+    if (typeof text !== 'string' ) throw new Error ("Please enter a valid string");
     const matchRepeatedString = text.match(/(.)\1{0,}/gi);
    
     let result = '';
