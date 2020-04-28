@@ -1,29 +1,29 @@
 function isolateDuplicates(text) {
     if(typeof text==="string"){
         let arrayOfText=[...text]
-        let arrayOfCharacter=text[0]+text[1]
-        let arrayOfDuplicate=""
-        let noOfArrayOfDuplicate=0
+        let stringOfCharacter=text[0]+text[1]
+        let stringOfDuplicate=""
+        let noOfStringOfDuplicate=0
         for(var i=2;i<arrayOfText.length;i++){
-          if(arrayOfText[i].toLowerCase()==arrayOfCharacter[arrayOfCharacter.length-1].toLowerCase()&&arrayOfText[i].toLowerCase()==arrayOfCharacter[arrayOfCharacter.length-2].toLowerCase()){
-              arrayOfDuplicate+=arrayOfText[i]
-              arrayOfDuplicate
+          if(arrayOfText[i].toLowerCase()==stringOfCharacter[stringOfCharacter.length-1].toLowerCase()&&arrayOfText[i].toLowerCase()==stringOfCharacter[stringOfCharacter.length-2].toLowerCase()){
+              stringOfDuplicate+=arrayOfText[i]
+              stringOfDuplicate
              if(i<arrayOfText.length-1&&arrayOfText[i].toLowerCase()!==arrayOfText[i+1].toLowerCase()){
-                arrayOfCharacter+="["+arrayOfDuplicate+"]"
-                noOfArrayOfDuplicate++
-                arrayOfDuplicate=[]
+                stringOfCharacter+="["+stringOfDuplicate+"]"
+                noOfStringOfDuplicate++
+                stringOfDuplicate=[]
               }
            }
           else{
-            arrayOfCharacter+=arrayOfText[i]
+            stringOfCharacter+=arrayOfText[i]
            }
         }
-        noOfArrayOfDuplicate
-        if(arrayOfDuplicate.length>0){
-           arrayOfCharacter+="["+arrayOfDuplicate+"]"
-          noOfArrayOfDuplicate++
+        noOfStringOfDuplicate
+        if(stringOfDuplicate.length>0){
+           stringOfCharacter+="["+stringOfDuplicate+"]"
+          noOfStringOfDuplicate++
         }
-        return [arrayOfCharacter,noOfArrayOfDuplicate]
+        return [stringOfCharacter,noOfStringOfDuplicate]
       }
     else {
         throw "Please enter a valid string"
