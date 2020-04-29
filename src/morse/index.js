@@ -67,7 +67,10 @@ function morse(text) {
     3. replace undefined and null embedded with any word
   */
 
+  let splittedMorse = text.split(' ')
+  let morseArray=[]
   
+
 
 }
 
