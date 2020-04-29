@@ -39,12 +39,11 @@ function removeDuplicates(obj) {
   for (let key in result) {
     let objValues = obj[key];
     let resultValues = result[key];
-    for (let index in objValues) {
-      if (resultValues.indexOf(objValues[index]) < 0) {
-        objValues.splice(index, 1);
-      }
-    }
-    result[key] = objValues;
+    let filteredValues = objValues.filter(function (value) {
+      return resultValues.indexOf(value) >= 0;
+    });
+
+    result[key] = Array.from(new Set(filteredValues));
   }
 
   return result;

@@ -7,7 +7,9 @@ function isolateDuplicates(text) {
       return output;
     }
 
-    let newText = text.replace(/\w{3, }/g, (str) => addingBrackets(str));
+    let newText = text.replace(/\w{3, }/g, function (letters) {
+      return [letters.slice(0, 2), "[", letters.slice(2), "]"].join("");
+    });
 
     console.log(newText);
     // let numberOfDuplicatedLetters = 0;
@@ -33,7 +35,7 @@ function isolateDuplicates(text) {
 
     // return [JSON.stringify(arrayOfletters), numberOfDuplicatedLetters];
   } else {
-    return "Please enter a valid string";
+    throw "Please enter a valid string";
   }
 }
 
