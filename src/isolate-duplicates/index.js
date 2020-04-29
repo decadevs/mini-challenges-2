@@ -7,38 +7,66 @@ function isolateDuplicates(text) {
   let numberDuplicate = 0;
   let duplicateStr = '';
 
-  if(text === null || text !== String(text)){
-    console.log('Please enter a valid string');
+  if(text === null || typeof text !== 'string'){
+    throw('Please enter a valid string');
   }
   else{
 
     for(let i = 0; i < text.length; i++){
 
       if(!(result.includes(text[i]))){
+
+        if(duplicateStr !== ''){
+          result.push(`[${duplicateStr}]`);
+          consecutiveCharIndex = 0;
+          duplicateStr = '';
+          numberDuplicate++;
+        }
+
         result.push(text[i]);
         firstCharIndex = i;
         consecutiveCharIndex = 0;
+
       }
 
       //Find the second consective character and push into array
-      if(result.includes(text[i]) && i === firstCharIndex + 1 && text[i] === text[firstCharIndex]){
+      else if(result.includes(text[i]) && i === firstCharIndex + 1 && text[i] === text[firstCharIndex]){
         result.push(text[i]);
-        consecutiveCharIndex = 2;
+        consecutiveCharIndex = firstCharIndex + 1;
       }
 
-      //To resume from here
+      //To detect if there is another character of the same type after the second consecutive character
+      else if(result.includes(text[i]) && text[i] === text[consecutiveCharIndex] && i > 0){
+        duplicateStr += text[i];
+        consecutiveCharIndex++;
+      }
+
+      //To detect strings that reocurred.
       if(result.includes(text[i]) && text[i] !== text[firstCharIndex]){
-        if(i === firstCharIndex + subsequentChar){
+        if(i === firstCharIndex + subsequentChar && i - firstCharIndex === 1){
           result.push(text[i]);
+          subsequentChar++;
         }
-        if(text[i] === text[firstCharIndex + subsequentChar]){}
-        subsequentChar++;
+
+        else if(text[i] === text[firstCharIndex + subsequentChar] && i - firstCharIndex === 2){
+          result.push(text[i]);
+          subsequentChar++;
+          consecutiveCharIndex = firstCharIndex + subsequentChar;
+        }
+
+        else if(text[i] === text[consecutiveCharIndex] && i - firstCharIndex > 2){
+          duplicateStr += text[i];
+          subsequentChar++;
+          consecutiveCharIndex += 1;
+        }
+
+        //subsequentChar++;
 
       }
 
     }
-
     console.log([result.join(''), numberDuplicate]);
+    return([result.join(''), numberDuplicate]);
 
   }
   // else{
@@ -99,5 +127,6 @@ function isolateDuplicates(text) {
 
 }
 
-isolateDuplicates("booopdedooop");
+//isolateDuplicates("hellllloooooodeeeecadevvsss");
+isolateDuplicates("helloookat");
 module.exports = isolateDuplicates;
