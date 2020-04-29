@@ -1,14 +1,21 @@
 function isolateDuplicates(text) {
+
+  // storing input in str
   let str = text;
+
+  // checking if not string then throws error else continues
   if (typeof str !== "string") {
     throw "Please enter a valid string";
   } else {
-    let strUpper = str.toUpperCase()
+
+    // making string uppercase to deal with case sensitivity
+    let strUpper = str.toUpperCase();
     let arr = [];
     let subStr = "";
 
+    // for loop for grouping similar characters as string words
     for (let i = 0; i < str.length; i++) {
-      if (strUpper[i] !== strUpper[i+1]) {
+      if (strUpper[i] !== strUpper[i + 1]) {
         subStr += str[i];
         arr.push(subStr);
         subStr = "";
@@ -17,7 +24,7 @@ function isolateDuplicates(text) {
       }
     }
 
-
+    // code for keeping first two letters of each word and bracket the rest
     let counter = 0;
     let container = [];
     let main = [];
@@ -37,6 +44,7 @@ function isolateDuplicates(text) {
     return main;
   }
 }
+
 
 
 module.exports = isolateDuplicates;
