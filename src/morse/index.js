@@ -62,8 +62,11 @@ function morse(text) {
   let outCome = '';
   let start = 0;
 
-  if(text === ''){return('')}
-  if(typeof text != 'string'){return('Please provide a morse string')}
+
+  if(text === ''){return "";}
+  if(typeof text != 'string'){
+    throw('Please provide a morse string');
+  }
   else{
     text = text.trim(); // Remove all white spaces before and after strings
 
@@ -98,7 +101,6 @@ function morse(text) {
 
   }
 
-}
-
+  }
 
 module.exports = morse;
