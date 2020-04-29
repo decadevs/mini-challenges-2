@@ -59,7 +59,25 @@ const MORSE_CODE = {
 Object.freeze(MORSE_CODE);
 
 function morse(text) {
+  let ans = "";
+  if (typeof text != "string") {
+    throw "Please provide a morse string";
+  } else if (text == "") {
+    return ans;
+  }
+  let myArr = text.trim().split(" ");
 
+  for (let i = 0; i < myArr.length; i += 1) {
+    if (myArr[i] == "" && myArr[i + 1] != "") {
+      ans += " ";
+      continue;
+    } else if (myArr[i] == "" && myArr[i + 1] == "") {
+      continue;
+    } else {
+      ans += MORSE_CODE[myArr[i]];
+    }
+  }
+  return ans;
 }
 
 
