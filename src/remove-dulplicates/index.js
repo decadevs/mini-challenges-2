@@ -13,9 +13,6 @@ function removeDuplicates(obj) {
     }
     let finalArray=String(arrOfValues).replace(/[,]/gi,"")
     let finalArrayOfValues=finalArray.split("")
-    //let b=[...new Set(a)]
-    
-    //console.log(b)
     finalArrayOfValues.sort()
     let arrOfValuesWithoutDuplicate=[finalArrayOfValues[0]]
     let duplicatedValuesOfFinalArrayOfValues=[]
