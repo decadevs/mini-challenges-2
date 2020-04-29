@@ -71,12 +71,12 @@ function morse(text) {
           arrWords[i] = arrWords[i].split(" ");
       for (let j = 0; j < arrWords[i].length; j++) {
         arrWords[i][j] = MORSE_CODE[arrWords[i][j]];
-        console.log(arrWords[i][j]);
+
         }
       }
       for (let i = 0; i < arrWords.length; i++) {
         arrWords[i] = arrWords[i].join("");
-        console.log(arrWords[i]);
+
         }
         return arrWords.join(" ");
     }
