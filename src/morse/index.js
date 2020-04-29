@@ -58,6 +58,17 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+
+  /* 
+    Steps to appraoching Morse code translation to readable words
+    1. Split morse text in words using the split method
+    2. Loop through splitted morse, pushing into a morseArray
+    3. replace undefined and null embedded with any word
+  */
+
+  
+
+}
 
 module.exports = morse;
