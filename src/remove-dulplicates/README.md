@@ -82,6 +82,8 @@ Input:
   "11": ["P", "R", "S", "D"]
 }
 ```
+-check present element against all other elements of its array
+-check present element against if it is included in array above it.
 
 Output:
 

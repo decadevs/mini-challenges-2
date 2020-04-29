@@ -58,6 +58,42 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+  let temp = '';
+   if (Array.isArray(text) || text == undefined) {
+    throw new Error("Please provide a morse string");
+  }
+
+  else if (text.length == 0 || text == '') {
+    return text;
+  }
+
+  else if (text.length > 0) {
+    if (text.length > 1) {
+      let textToArray = text.split('   ').map(arr => arr.split(' '));
+      for (let i = 0; i < textToArray.length; i++) {
+        for (let j = 0; j < textToArray[i].length; j++) {
+          if (!MORSE_CODE[textToArray[i][j]]) {
+            temp += textToArray[i][j];
+          }
+          else {
+            temp += MORSE_CODE[textToArray[i][j]];
+          }
+        }
+        temp += '@@@';    
+      }
+      temp = temp.replace(/@@@/g, ' ')
+    }
+    else {
+      if (!MORSE_CODE[text]) {
+        temp += text;
+      }
+      else {
+        temp += MORSE_CODE[text];
+      }
+    }
+    return temp.trim();
+  }
+}
 
 module.exports = morse;
