@@ -60,6 +60,7 @@ Object.freeze(MORSE_CODE);
 
 function morse(text) {
 
+  
   /* 
     Steps to appraoching Morse code translation to readable words
     1. Split morse text in words using the split method
@@ -67,18 +68,41 @@ function morse(text) {
     3. replace undefined and null embedded with any word
   */
 
-  let splittedMorse = text.split(' ')
-  let morseToWordArray=[]
 
-  for(let i =0;i<splittedMorse.length;i++){
-    morseToWordArray.push(MORSE_CODE[splittedMorse[i]])
+  try{
+    if(typeof(text)!=='string'){
+      throw "Please provide a morse string"
+    }
+    if(text==='undefined'){
+      throw ""
+    }
+    if(text===""){
+      return ""
+    }
+
+    let splittedMorse = text.split(' ')
+    let morseToWordArray = []
+
+    for (let i = 0; i < splittedMorse.length; i++) {
+      morseToWordArray.push(MORSE_CODE[splittedMorse[i]])
+    }
+
+    let combinedLetters = morseToWordArray.reduce((accumulator, current) => accumulator + current)
+    let noNullUndefinedInWord = combinedLetters.replace(/undefined|NAN/gi, " ")
+
+    //remove empty strings and replace with single space
+
+    let removedEmptyString = noNullUndefinedInWord.split(' ').filter(a => a).join(' ')
+
+    return removedEmptyString
+
   }
-
-  let combinedLetters=morseToWordArray.reduce((accumulator,current)=>accumulator+current)
-  let noNullUndefinedInWord = combinedLetters.replace(/undefined|NAN/gi, " ")
-
-  return noNullUndefinedInWord
+  catch(err){
+    throw err
+  }
+  
 
 }
+
 
 module.exports = morse;
