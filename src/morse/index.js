@@ -74,7 +74,10 @@ function morse(text) {
     morseToWordArray.push(MORSE_CODE[splittedMorse[i]])
   }
 
+  let combinedLetters=morseToWordArray.reduce((accumulator,current)=>accumulator+current)
+  let noNullUndefinedInWord = combinedLetters.replace(/undefined|NAN/gi, " ")
 
+  return noNullUndefinedInWord
 
 }
 
