@@ -60,27 +60,26 @@ Object.freeze(MORSE_CODE);
 
 function morse(text) {
   // Checks to see if input is a string
-  if (typeof text === "string") {
-    text = text.trim();
-
-    // Replacing . and - with letters using the MORSE_CODE as a dictionary
-    const letters = text.replace(/[^\s]+/g, function (letter) {
-      return MORSE_CODE[letter];
-    });
-
-    // Replacing white spaces for words with a hyphen
-    const words = letters.replace(/\s\s\s/g, "-");
-
-    // Joining letters together to form words by closing up single spaces
-    const wordSentence = words.replace(/\s/g, "");
-
-    // Removing hyphens
-    const sentence = wordSentence.replace(/-/g, " ");
-
-    return sentence;
-  } else {
-    throw "Please provide a morse string";
+  if (typeof text !== "string") {
+    throw new Error("Please provide a morse string");
   }
+  text = text.trim();
+
+  // Replacing . and - with letters using the MORSE_CODE as a dictionary
+  const letters = text.replace(/[^\s]+/g, function (letter) {
+    return MORSE_CODE[letter];
+  });
+
+  // Replacing white spaces for words with a hyphen
+  const words = letters.replace(/\s\s\s/g, "-");
+
+  // Joining letters together to form words by closing up single spaces
+  const wordSentence = words.replace(/\s/g, "");
+
+  // Removing hyphens
+  const sentence = wordSentence.replace(/-/g, " ");
+
+  return sentence;
 }
 
 module.exports = morse;

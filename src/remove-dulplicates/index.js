@@ -1,8 +1,8 @@
 function removeDuplicates(obj) {
-  let arrayOfKeys = Object.keys(obj);
-  arrayOfKeys = arrayOfKeys.map((each) => parseInt(each, 10));
-  arrayOfKeys = arrayOfKeys.sort((a, b) => a - b);
-  arrayOfKeys = arrayOfKeys.map((each) => each.toString());
+  const arrayOfKeys = Object.keys(obj)
+    .map((each) => parseInt(each, 10))
+    .sort((a, b) => a - b)
+    .map((each) => each.toString());
 
   const reverseArrayOfKeys = arrayOfKeys.reverse();
 
