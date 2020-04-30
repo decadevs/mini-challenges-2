@@ -75,7 +75,7 @@ function morse(text) {
       character += MORSE_CODE[morseChar];
       morseChar = "";
     }
-    if(toArr[a]==" " && toArr[a+1]==" " && toArr[a+2]==" " || a==toArr.length-1){
+    if(toArr[a]==" " && toArr[a+1]==" " && toArr[a+2]==" " && toArr[a+3]!=" " || a==toArr.length-1){
       character += MORSE_CODE[morseChar];
       word.push(character);
       character="";
