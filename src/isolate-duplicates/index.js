@@ -1,5 +1,4 @@
 function isolateDuplicates(text) {
-
     if (typeof text === 'string' || text instanceof String){
         answer = [];
         count = 0;
