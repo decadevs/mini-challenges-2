@@ -1,12 +1,9 @@
 function isolateDuplicates(text) {
 
   let result = [];
-  let firstCharIndex;
   let consecutiveCharIndex = 1;
-  let subsequentChar = 2;
   let numberDuplicate = 0;
   let duplicateStr = '';
-  let reoccurStrs = false;
 
   if(text === null || typeof text !== 'string'){
     throw('Please enter a valid string');
@@ -54,13 +51,10 @@ function isolateDuplicates(text) {
       }
 
     }
-    //console.log([result.join(''), numberDuplicate]);
     return([result.join(''), numberDuplicate]);
 
   }
 
 }
 
-//isolateDuplicates("hellllloooooodeeeecadevvsss");
-//isolateDuplicates("iiijjjjooooppppp");
 module.exports = isolateDuplicates;
