@@ -1,12 +1,10 @@
 function removeDuplicates(obj) {
 
-
   let arr = [];
   const arrayIndex = 1; //The index of the array inside object (obj).
   const keyIndex = 0;   //The index of key inside object (obj).
   let key = Object.keys(obj);
   let entry = Object.entries(obj);
-
 
   //Sort the keys in acending order
   key = key.sort((a, b) => a - b);
@@ -16,7 +14,7 @@ function removeDuplicates(obj) {
 
     for(let k = 0; k < entry[j][arrayIndex].length; k++){
       if(!(arr.includes(entry[j][arrayIndex][k]))){
-        arr.push(entry[j][arrayIndex][k])
+        arr.push(entry[j][arrayIndex][k]);
       }
 
     }
@@ -28,7 +26,13 @@ function removeDuplicates(obj) {
 
   for(let i = 0; i < key.length - 1; i++){
 
-    obj[key[i]] = obj[key[i]].filter(valu => !(obj[key[i + 1]].includes(valu)));
+    for(let j = 1; j < key.length; j++){
+
+      if(j > i){
+        obj[key[i]] = obj[key[i]].filter(valu => !(obj[key[j]].includes(valu)));
+      }
+
+    }
 
   }
 
