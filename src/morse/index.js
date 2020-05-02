@@ -58,6 +58,39 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+  //bail if text ain't morse
+  if (!text.includes(".") && text !== "") {
+    throw "Please provide a morse string";
+  }
+  //trim white spaces
+  let trim = text.trim();
+  //get the words
+  let words = trim.split("   ");
+  let output = [];
+  //iterate the words for letters
+  for (let i = 0; i < words.length; i++) {
+    //get the letters in words
+    let word = words[i].split(" ");
+    // declare string for conversion
+    let string = "";
+    //convert the morse to English
+    for (let j = 0; j < word.length; j++) {
+      //take care of that empty exception
+      if (word[j] === "") {
+        continue;
+      }
+      //make the conversion
+      let letter = MORSE_CODE[word[j]];
+      //increment the word string
+      string += letter;
+    }
+    //add words to output array
+    output.push(string);
+  }
+  //turn array to string delimited by spaces
+  ret = output.join(" ");
+  return ret;
+}
 
 module.exports = morse;
