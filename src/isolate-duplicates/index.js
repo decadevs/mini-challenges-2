@@ -36,4 +36,3 @@ function isolateDuplicates(input) {
 }
 
 module.exports = isolateDuplicates;
-console.log(isolateDuplicates("TttTTTTttttTTTTTTIIIIIiiiiiiiSSSSSSSSSTTTTAAAAAAAAAaaaaaaaaaSSSSSSSSSSKKKKKkkkkkk"));
