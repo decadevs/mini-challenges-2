@@ -1,6 +1,5 @@
 function removeDuplicates(obj) {
   let objKeys = Object.keys(obj);
-  let newObj = {};
   objKeys.sort(function (a, b) { return a - b });
   let outputObject = {};
   for (key in obj) {
@@ -11,7 +10,7 @@ function removeDuplicates(obj) {
   let objValues = Object.values(obj).reverse();
   let objValuesCopy = objValues.slice(0);
   let collector = [];
-  
+
   for (let i = 0; i < objValuesCopy.length; i++) {
     for (let j = 0; j < objValuesCopy[i].length; j++) {
       if (!(collector.includes(objValues[i][j]))) {
@@ -23,12 +22,13 @@ function removeDuplicates(obj) {
   }
   objValues.reverse();
   for (let i = 0; i < objKeys.length; i++) {
-    objValues[i] = objValues[i].filter(function (str) { return /\S/.test(str) });
-    newObj[objKeys[i]] = objValues[i];
+    objValues[i] = objValues[i].filter(function (str) {
+      return /\S/.test(str)
+    });
+    outputObject[objKeys[i]] = objValues[i];
   }
-  
-  return newObj;
+
+  return outputObject;
 }
 
 module.exports = removeDuplicates;
-
