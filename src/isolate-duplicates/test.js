@@ -39,11 +39,11 @@ describe("Find Duplicates", () => {
   test("case preserving", () => {
     expect(isolateDuplicates("HelllllooooooDeeeecadevvsss")).toEqual([
       "Hell[lll]oo[oooo]Dee[ee]cadevvss[s]",
-      4,
+      4
     ]);
     expect(isolateDuplicates("HEEEELLLLLOOOOOOOTHHHHHEEEEERRRREEE")).toEqual([
-      "HEE[EE]LL[LLL]OO[OOOOO]THH[HHH]EE[EEE]RRRREE[E]",
-      5,
+      "HEE[EE]LL[LLL]OO[OOOOO]THH[HHH]EE[EEE]RR[RR]EE[E]",
+      7
     ]);
     expect(
       isolateDuplicates(
@@ -51,7 +51,7 @@ describe("Find Duplicates", () => {
       )
     ).toEqual([
       "Tt[tTTTTttttTTTTTT]II[IIIiiiiiii]SS[SSSSSSS]TT[TT]AA[AAAAAAAaaaaaaaaa]SS[SSSSSSSS]KK[KKKkkkkkk]",
-      7,
+      7
     ]);
   });
 });
