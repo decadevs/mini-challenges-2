@@ -58,6 +58,24 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) 
+{
+  //container variable to reference the translated morse code
+  let decodeMorse = [];
+
+  //split the input morse code using space character between each morse code
+  let splitMorse = text.split(" ");
+
+  /*use the underly forEach loop to perform the decoding of each morse code using
+  * the MORSE_CODE object and store the result in the decodeMorse variable array */
+  splitMorse.forEach(element => {
+    decodeMorse.push(MORSE_CODE[element]);
+  });
+
+  //join the array of the decoded morse code to form a plain text and return it.
+  return decodeMorse.join("");
+}
 
 module.exports = morse;
+
+console.log(morse("-.. . -.-. .- -.. . ...-"));
