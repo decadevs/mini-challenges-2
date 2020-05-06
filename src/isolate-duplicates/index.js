@@ -1,9 +1,17 @@
 function isolateDuplicates(text) 
 {
     //if the parameter type is not a valid string throw an error 
-    if(typeof text !== "string" || text === undefined)
+    try
     {
-        return `Please enter a valid string`;
+      if(typeof text !== "string") 
+        throw `Please enter a valid string`;
+  
+      if(text === undefined) 
+        throw `Please enter a valid string`;      
+    }
+    catch(err)
+    {
+      return err;
     }
 
     //variable to match any letter of alphabet
