@@ -61,7 +61,7 @@ Object.freeze(MORSE_CODE);
 function morse(text) 
 {
   //check to ensure the input text is a valid string
-  if(typeof text !== "string" )
+  if(typeof text !== "string" || text === undefined)
   {
       return `Please provide a morse string`;
   }
