@@ -1,5 +1,11 @@
 function removeDuplicates(obj) 
 {
+    //if empty parameter or empty array
+    if(obj === undefined)
+    {
+        return `Object is underfined`;
+    }
+
     /*variable to get the object keys(i.e properties). The function Object.key() by default 
     *returns array of all the object keys sorted in ascending order when the keys are numbers 
     *(i.e 1,2,3,...) or quoted(string) numbers (i.e "1","2","3",...)*/
@@ -16,6 +22,11 @@ function removeDuplicates(obj)
             {
                 //...such element is a duplicate. target it and remove it. 
                 obj[keys[k]].splice(i, 1);
+            } 
+            //double check each current and next element to ensure no duplicate is left
+            else if(obj[keys[k]][i] === obj[keys[k]][i + 1])
+            {                
+                obj[keys[k]].splice(i + 1, 1);                    
             }
             //check all previous key values using this loop
              for (let j = 1; j < keys.length; j++)
@@ -45,3 +56,5 @@ function removeDuplicates(obj)
 }
 
 module.exports = removeDuplicates;
+
+console.log(removeDuplicates());

@@ -1,11 +1,14 @@
 function isolateDuplicates(text) 
 {
+    //if the function receives no parameter or the  parameter entered 
+    //is an empty string or empty array, throw an error
+    if(text === undefined || text.length === 0)
+    {
+        return `Please enter a valid string`;
+    }
+
     //variable to match any letter of alphabet
     const regexToValidateText = /[a-z]/i; //flag 'i' to ignore case
-
-    /* match any zero or more group of sequential character 
-    * using the wild card operator(i.e dot) */
-    const regexRepeatedGroup = /(.)\1*/gi //flag 'i','g' to make it global and ignore case
     
     //loop through the input text to check valid input
     for (let letter of text)
@@ -18,6 +21,10 @@ function isolateDuplicates(text)
         }
     }
 
+    /*variable to match any zero or more group of sequential character 
+    * using the wild card operator(i.e dot) */
+    const regexRepeatedGroup = /(.)\1*/gi //flag 'i','g' to make it global and ignore case
+    
     //initialized this array that will hold duplicate characters that will be isolated
     let duplicatesIsolate = [];
     
