@@ -1,8 +1,7 @@
 function isolateDuplicates(text) 
 {
-    //if the function receives no parameter or the  parameter entered 
-    //is an empty string or empty array, throw an error
-    if(text === undefined || text.length === 0)
+    //if the parameter type is not a valid string throw an error 
+    if(typeof text !== "string")
     {
         return `Please enter a valid string`;
     }

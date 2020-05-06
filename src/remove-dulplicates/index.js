@@ -1,11 +1,5 @@
 function removeDuplicates(obj) 
 {
-    //if empty parameter or empty array
-    if(obj === undefined)
-    {
-        return `Object is underfined`;
-    }
-
     /*variable to get the object keys(i.e properties). The function Object.key() by default 
     *returns array of all the object keys sorted in ascending order when the keys are numbers 
     *(i.e 1,2,3,...) or quoted(string) numbers (i.e "1","2","3",...)*/
@@ -56,5 +50,3 @@ function removeDuplicates(obj)
 }
 
 module.exports = removeDuplicates;
-
-console.log(removeDuplicates());

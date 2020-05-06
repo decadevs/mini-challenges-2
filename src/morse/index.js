@@ -60,8 +60,8 @@ Object.freeze(MORSE_CODE);
 
 function morse(text) 
 {
-  //if empty parameter or empty array
-  if(text === undefined || text.length === 0 && text !== "")
+  //check to ensure the input text is a valid string
+  if(typeof text !== "string" )
   {
       return `Please provide a morse string`;
   }
@@ -71,24 +71,32 @@ function morse(text)
 
   //split the input morse code using space character between each morse code
   let splitMorse = text.split(" ");
-
-  /*use the below forEach loop to perform the decoding of each morse code using
-  * the MORSE_CODE object and store the result in the decodeMorse variable array */
-  splitMorse.forEach(function(item)
-	{
-		if(item === "")
-		{
-			decodeMorse.push(" ");//preserve all whitespace character in the input text
-		} 
-		else
-		{
-			decodeMorse.push(MORSE_CODE[item]);
-		}
-	});
-
+  
+  //loop through each item in the splitMorse array and ensure it's a validate morse string
+  for (let item of splitMorse)
+  {
+      if(item === "")
+      {
+        decodeMorse.push(" ");//preserve all whitespace character in the input text
+      } 
+      else if(MORSE_CODE.hasOwnProperty(item))
+      {
+        decodeMorse.push(MORSE_CODE[item]);
+      }
+      else
+      {
+        return `Please provide a morse string`;
+      }
+  }
+  
   //join the array of the decoded morse code to form human readable string
-  //remove any whitespace character/s at the beginning or the end.
-  return decodeMorse.join("").trim();
+  //remove any whitespace char/s at the beginning or the end.
+  let formatDecodeMorse = decodeMorse.join("").trim();
+
+  //replace multiple whitespace chars with single whitespace
+  let output = formatDecodeMorse.replace(/\s\s+/g, ' ');  
+  
+  return output;
 }
 
 module.exports = morse;
