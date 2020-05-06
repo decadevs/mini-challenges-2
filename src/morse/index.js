@@ -61,18 +61,10 @@ Object.freeze(MORSE_CODE);
 function morse(text) 
 {
   //check to ensure the input text is a valid else throw an error
-  try
-  {
-    if(typeof text !== "string") 
+   if(typeof text !== "string")
+    {        
       throw `Please provide a morse string`;
-
-    if(text === undefined) 
-      throw `Please provide a morse string`;      
-  }
-  catch(err)
-  {
-    return err;
-  }
+    } 
 
   //container variable to reference the translated morse code
   let decodeMorse = [];

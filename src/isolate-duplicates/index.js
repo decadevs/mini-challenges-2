@@ -1,19 +1,10 @@
 function isolateDuplicates(text) 
 {
     //if the parameter type is not a valid string throw an error 
-    try
+    if(typeof text !== "string") 
     {
-      if(typeof text !== "string") 
-        throw `Please enter a valid string`;
-  
-      if(text === undefined) 
-        throw `Please enter a valid string`;      
+        throw `Please enter a valid string`
     }
-    catch(err)
-    {
-      return err;
-    }
-
     //variable to match any letter of alphabet
     const regexToValidateText = /[a-z]/i; //flag 'i' to ignore case
     
