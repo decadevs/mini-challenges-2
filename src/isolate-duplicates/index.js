@@ -5,10 +5,10 @@ function isolateDuplicates(text) {
   let str = "";
   const splitText = text.toLowerCase().split("");
 
-  var count = 0;
-  var next = 1;
-  var prev = 0;
-  var position = 0;
+  let count = 0;
+  let next = 1;
+  let prev = 0;
+  let position = 0;
   for (let i = 0; i < splitText.length; i++) {
     if (splitText[prev] !== splitText[next]) {
       const index = text.toLowerCase().indexOf(splitText[prev], position);
