@@ -13,10 +13,8 @@ function isolateDuplicates(text) {
             newString += "[";
             duplicates++;
         }
-        
         if (i > 0 && text[i].toLowerCase() !== text[i - 1].toLowerCase() && counter > 0) counter = 0;
 
-        // console.log(text[i], counter)
         newString += text[i];
 
     }
