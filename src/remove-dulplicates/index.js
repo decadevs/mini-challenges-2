@@ -1,47 +1,49 @@
 function removeDuplicates(obj) {
   const collection = [];
-
   const keys = Object.keys(obj).reverse();
   const result = {};
-
   for (const [, value] of Object.entries(obj)) {
     collection.push([...new Set([...value])]);
   }
   collection.reverse();
-  const differenceSet = new Set();
-  let unionSet = [];
-  let i = 0;
+
+  let prev = 0;
   let next = 1;
   let count = 0;
-  while (i < collection.length - 1) {
-    const setA = new Set(collection[i]);
-    for (const elem of collection[next]) {
-      if (!setA.has(elem) && !unionSet.includes(elem)) {
-        differenceSet.add(elem);
-        count++;
-      } else {
-        count++;
-        unionSet.push(elem);
-      }
+  let index = 0;
+
+  while (prev < collection.length - 1) {
+    const arr = collection[prev];
+    const nextArr = collection[next];
+
+    if (arr.includes(nextArr[index])) {
+      count--;
+      nextArr.splice(index, 1);
     }
-    if (count === collection[next].length) {
-      const uniqueSet = [...new Set([...collection[i], ...collection[next]])];
+    if (!arr.includes(nextArr[index])) {
+      index++;
+      count++;
+    }
 
-      unionSet = [...new Set([...unionSet, ...uniqueSet])];
-
-      const convertSetToArr = [...differenceSet];
-      collection.splice(next, 1, convertSetToArr);
+    if (count === nextArr.length) {
+      index = 0;
       count = 0;
-      differenceSet.clear();
-      i++;
       next++;
     }
+    if (next === collection.length) {
+      if (nextArr.length === 0) {
+        break;
+      }
+      index = 0;
+      count = 0;
+      prev++;
+      next = prev + 1;
+    }
   }
-
-  collection.forEach((arr, index) => {
-    result[keys[index]] = arr;
-  });
-
+  for (let i = 0; i < keys.length; i++) {
+    result[keys[i]] = collection[i];
+  }
   return result;
 }
+
 module.exports = removeDuplicates;
