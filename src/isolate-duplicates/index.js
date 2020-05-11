@@ -23,6 +23,4 @@ function isolateDuplicates(text) {
     return [newString, duplicates];
 }
 
-console.log(isolateDuplicates("helloookat"));
-
 module.exports = isolateDuplicates;
