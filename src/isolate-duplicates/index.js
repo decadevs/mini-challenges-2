@@ -6,9 +6,9 @@ function isolateDuplicates(text) {
   let duplicateCharacter = [];
   let lowerString
 
-  if(!text) throw '' 
+  if(!text) throwError();
       
-  if(typeof text !== 'string')  throw 'Please enter a valid string'
+  if(typeof text !== 'string')  throw'Please enter a valid string'
 
   const newText = text.toLowerCase()
       
