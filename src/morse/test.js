@@ -11,6 +11,8 @@ describe("Morse assumptions", () => {
   });
 });
 
+
+
 describe("Morse spec", () => {
   test("it decodes single letters and words", () => {
     expect(morseToText(".-")).toBe("A");
