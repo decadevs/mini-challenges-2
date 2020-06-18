@@ -60,7 +60,7 @@ Object.freeze(MORSE_CODE);
 
 function morse(text) {
   if (typeof text !== 'string') {
-    throw ('Please provide a morse string');
+    throw Error ('Please provide a morse string');
   }
   else {
     let morseWords = text.trim().split('   ');

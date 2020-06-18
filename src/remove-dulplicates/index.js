@@ -1,53 +1,34 @@
 function removeDuplicates(obj) {
-  let keys = (Object.keys(obj));
-
-  let keysNumeric = [];
-  for (let i = 0; i < keys.length; i++) {
-    keysNumeric.push(parseInt(keys[i]));
+  let key = Object.keys(obj);
+  sortKey = key.sort((a, b) => parseInt(a) - parseInt(b)); //Sort the keys
+  let value = [];
+  for (let i = sortKey.length - 1; i >= 0; i--) { //To obtain all the elements in the object
+    value.push(...obj[sortKey[i]]);
   }
-
-  let values = Object.values(obj);
-
-  let invertValues = [];
-  for (let q = values.length - 1; q >= 0; q--) {
-    invertValues.push(values[q]);
+  let uniqueValue = [... new Set(value)];  //Get unique element
+  let noOfArray = key.length;
+  //Create empty array of the same size as the key
+  let emptyArray = [];
+  while (noOfArray > 0) {
+    emptyArray.push([]);
+    noOfArray--;
   }
-
-  let spreadValues = [].concat(...invertValues);
-
-  let uniqueValues = [... new Set(spreadValues)];
-  let valuesLength = [];
-  let emptyValue = [];
-  for (let j = 0; j < invertValues.length; j++) {
-    valuesLength.push(invertValues[j].length)
-    emptyValue.push([]);
-  }
-
-  let cumValuesLength = [];
-  valuesLength.reduce(function(a,b,i) {return cumValuesLength[i] = a+b; }, 0)
-
-  for (let k = 0; k < uniqueValues.length; k++) {
-    let valueFirstIndex = spreadValues.indexOf(uniqueValues[k]);
-    let allIndex = [];
-    for (let m = 0; m < cumValuesLength.length; m++) {
-
-      if (valueFirstIndex < cumValuesLength[m]) {
-        allIndex.push(m);
+  //Add each unique element to the empty array from the higher key to the lower one
+  for (let i = 0; i < uniqueValue.length; i++) {
+    for (let j = sortKey.length - 1; j >= 0; j--) {
+      let char = uniqueValue[i]
+      let sample = [].concat(...emptyArray);
+      if (sample.indexOf(char) === -1) {
+        let presentArray = obj[sortKey[j]]; //Current array and check if the element is present in the obj
+        if (presentArray.indexOf(char) !== -1) {
+          emptyArray[j].push(char);
+        }
       }
     }
-    let myIndex = allIndex.shift();
-    emptyValue[myIndex].push(uniqueValues[k]);
   }
-
-  let finalValue = [];
-  for (let n = values.length - 1; n >= 0; n--) {
-    finalValue.push(emptyValue[n]);
-  }
-
-  let removeDuplicate = {};
-  keys.forEach((key, i) => removeDuplicate[key] = finalValue[i]);
-
-  return removeDuplicate;
+  let duplicate = {};
+  sortKey.forEach((key, i) => duplicate[key] = emptyArray[i]);
+  return duplicate;
 }
 
 module.exports = removeDuplicates;
