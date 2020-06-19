@@ -184,12 +184,4 @@ function morse(text) {
   return answer;
 }
 
-
-
-
-
-
-
-
-
 module.exports = morse;
