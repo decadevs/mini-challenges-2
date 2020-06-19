@@ -1,4 +1,4 @@
-const removeDuplicates = (obj) => {
+function removeDuplicates (obj) {
   const arrayOfObj = Object.entries(obj);
   for (let i = arrayOfObj.length - 1; i >= 0; --i) {
     arrayOfObj[i][1] = [...new Set(arrayOfObj[i][1])];

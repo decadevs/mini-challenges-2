@@ -1,4 +1,4 @@
-const isolateDuplicates = (text) => {
+function isolateDuplicates (text) {
   if (typeof text !== "string") {
     throw new Error("Please enter a valid string");
   }
