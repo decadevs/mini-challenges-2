@@ -75,15 +75,16 @@ Pseudocode
 */
 
 function morse(text) {
-    if (typeof text !== "string") return "Please provide a morse string";
-
+    console.log(typeof text === "string");
+    if (typeof text !== "string") {
+        throw new Error("Please provide a morse string");
+    }
     if (text === "") {
         return "";
     }
     if (text.length === 1) {
-        console.log(MORSE_CODE[text[0]]);
+        //console.log(MORSE_CODE[text[0]]);
         return MORSE_CODE[text[0]];
-
     }
     let finalStr = '';
     let textSplit = text.trim().split('   ')
@@ -91,27 +92,16 @@ function morse(text) {
     for (let i = 0; i < textSplit.length; i++) {
         let currentCode = textSplit[i];
         const splitTextSplit = currentCode.split(' ');
-        console.log(splitTextSplit)
-
         for (let j = 0; j < splitTextSplit.length; j++) {
             const characterCode = splitTextSplit[j];
             finalStr += MORSE_CODE[characterCode];
-            if (text === "[]" || text === "()") {
-                return "Please provide a morse string";
-            }
+
             if (splitTextSplit.length - 1 === j) {
                 finalStr += ' ';
             }
-            // console.log(characterCode === '');
-
-            if (characterCode === '') {
-                splitTextSplit.splice('')
-            }
         }
     }
-    return finalStr.trim();
+    return finalStr.trim().replace(/undefined/g, '');
 }
-
-
 
 module.exports = morse;
