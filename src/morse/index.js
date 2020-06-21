@@ -58,6 +58,29 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+if(typeof(text)!="string"){
+throw new Error("Please provide a morse string");
+}
+  
+  if(text==""){
+  return ""
+}
+  let translated ="";
+ 
+let splited = text.split(" ");
+
+splited.forEach((a,i)=>{if(((a==""&&splited[i+1]=="")||
+  (a==""&&splited[i+1]==""&&splited[i+2]==""))
+  &&(translated.charAt(translated.length-1)!=" ")){
+  translated+=" ";
+}if(MORSE_CODE[a]!=undefined){
+  translated+=MORSE_CODE[a];}
+})
+
+return translated.trim()
+
+ 
+}
 
 module.exports = morse;
