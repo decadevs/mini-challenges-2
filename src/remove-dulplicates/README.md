@@ -20,7 +20,7 @@ Create a function that returns an object with the same keys, but each string can
 
 ## Rules
 
-Keys should be compared as numbers: whenever two keys share the same string, the keys are compared numerically and the numerically largest key will keep the string. That's why, in the example above, key "2" contains "A" and "B", as `2 > 1`.
+Keys should  be compared as numbers: whenever two keys share the same string, the keys are compared numerically and the numerically largest key will keep the string. That's why, in the example above, key "2" contains "A" and "B", as `2 > 1`.
 
 If duplicate strings are found in the same array, the first occurance is kept.
 
