@@ -62,7 +62,7 @@ function morse(text) {
   if (text === "") {
     return "";
   } else if (typeof text !== "string") {
-    throw "Please provide a morse string";
+    throw ("Please provide a morse string");
   }
   let word = text
     .trim()
