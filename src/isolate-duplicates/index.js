@@ -23,7 +23,14 @@ function isolateDuplicates(text) {
         
         return l;
     }
-    return newArr2.join('')
+     let newStr = newArr2.join('')
+     let counts =  newStr.match(/]/g).length;
+
+    let newArr3 = [];
+    newArr3.push(newStr);
+    newArr3.push(counts);
+    return newArr3;
+    
      }
 
 module.exports = isolateDuplicates;
