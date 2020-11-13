@@ -11,7 +11,7 @@ function isolateDuplicates(text) {
     ... isolate the first two identical letters from the rest.
     */
   if (typeof text !== "string") {
-    return "Please enter a valid string";
+    throw "Please enter a valid string";
   } else {
     let re = /([a-z])\1{0,}/gi;
     let duplicateChars = text.match(re);
