@@ -2,8 +2,16 @@ function isolateDuplicates(text) {
     let arr = text.split("");
     let newArr = [...new Set(arr)];
     
-    return newArr.map(txt => txt.repeat(count(txt)));
-    
+    let newArr1 = newArr.map(txt => txt.repeat(count(txt))); 
+    let newArr2 = [];
+
+    for (let i = 0; i < newArr1.length; i++) {
+        if (newArr1.length > 2) {
+            newArr2.push(newArr1[i].substring(0, 2) + "[" + newArr1[i].substring(2, newArr1[i].length) + "]")
+        }else {
+            newArr2.push(newArr1[i]);
+        }
+}
     function count(chr) {
         let str = text;
         let strl = str.length;
@@ -12,12 +20,10 @@ function isolateDuplicates(text) {
                 l++;
             }
         }
+        
         return l;
     }
-
-}
-
-    
-
+    return newArr2.join('')
+     }
 
 module.exports = isolateDuplicates;
