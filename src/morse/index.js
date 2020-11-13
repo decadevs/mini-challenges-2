@@ -64,8 +64,19 @@ function morse(text) {
   for (let i = 0; i < arr.length; i++) {
     newArr.push(MORSE_CODE[arr[i]]);    
   }
-  return newArr.join(' ').trim();
-
+  let newStr = newArr.join(' ').trim();
+  let newArr1 = newStr.split('');
+  
+  for (let i = 0; i < newArr1.length; i++) {
+      if(newArr1[i] === " " && newArr1[i-1] === " " && newArr1[i+1] === " ") {
+          newArr1.splice(i, 1);
+          newArr1.splice(i-1, 1)
+      }else if (newArr1[i] === " " && newArr1[i-1] !== " " && newArr1[i+1] !== " ") {
+          newArr1.splice(i, 1)
+      }
+  }
+let newStr1 = newArr1.join('');
+return newStr1;
 }
 
 module.exports = morse;
