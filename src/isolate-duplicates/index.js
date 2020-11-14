@@ -6,7 +6,7 @@ function isolateDuplicates(text) {
     let newArr2 = [];
 
     for (let i = 0; i < newArr1.length; i++) {
-        if (newArr1.length > 2) {
+        if (newArr1[i].length > 2) {
             newArr2.push(newArr1[i].substring(0, 2) + "[" + newArr1[i].substring(2, newArr1[i].length) + "]")
         }else {
             newArr2.push(newArr1[i]);
