@@ -1,4 +1,7 @@
 function isolateDuplicates(text) {
+    if (typeof text !== "string") {
+        return "Please enter a valid string"
+    }
     let arr = text.split("");
     let newArr = [...new Set(arr)];
     
