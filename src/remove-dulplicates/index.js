@@ -1,18 +1,18 @@
 function removeDuplicates(obj) {
-    let keyA = Object.keys(obj);
-    for (let i = keyA.length-1; i >= 0; i--) {
-        let item = obj[keyA[i]];
-        let checkArr = [];
-        for (let j = 0; j < item.length; j++) {
-            if(checkArr.includes(item[j]) === true) {
-                item.splice(j, 1);
-                checkArr.push(item.join(","))
+    let arr = Object.entries(obj);
+    let checkArr = [];
+    for (let i = arr.length-1; i >= 0; i--) {
+        for (let j = 0; j < arr[i][1].length; j++) {
+        let item = arr[i][1];
+            if (checkArr.includes(item[j]) === true) {
+            item = item.splice(j, 1);
+            checkArr = checkArr.concat(item);
             }else {
-                checkArr.push(item.join(","));
-            }
+            checkArr = checkArr.concat(item);
         }
     }
-    return obj;
+}
+    return arr;
 
 }
 
