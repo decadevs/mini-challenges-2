@@ -1,19 +1,12 @@
 function removeDuplicates(obj) {
-    let arr = Object.entries(obj);
-    let checkArr = [];
-    for (let i = arr.length-1; i >= 0; i--) {
-        for (let j = 0; j < arr[i][1].length; j++) {
-        let item = arr[i][1];
-            if (checkArr.includes(item[j]) === true) {
-            item = item.splice(j, 1);
-            checkArr = checkArr.concat(item);
-            }else {
-            checkArr = checkArr.concat(item);
-        }
+        var difference = (a, b) => [...new Set(
+            [...a].filter(x => !b.includes(x)))];
+        var collector = [];
+        return Object.entries(obj).reverse().map(entry => {
+            const subCollector = collector;
+            collector = [...new Set([...collector, ...entry[1]])];
+            return [entry[0], [...new Set(difference(entry[1], subCollector))]];
+        }).reduce((arrays, array) => (arrays[array[0]] = array[1], arrays), {});
     }
-}
-    return arr;
-
-}
 
 module.exports = removeDuplicates;
