@@ -58,6 +58,19 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+  if (typeof text !== "string") throw "Please provide a morse string";
+  if (Boolean(text) === false || text === " ") return text;
 
+  /* replace all repeating spaces greater than one with just two spaces, and when it is splitted,
+  we will have an empty string (""), therefore a single space is returned and added to the output-
+  string when an empty string is encountered during the loop
+  */
+  let re = /(\s)\1{1,}/g;
+  let array = text.replace(re, "  ").trim().split(" ");
+  return array.reduce((output, item) => {
+    output += item === "" ? " " : MORSE_CODE[item];
+    return output;
+  }, "");
+}
 module.exports = morse;
