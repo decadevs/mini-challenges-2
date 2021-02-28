@@ -58,6 +58,26 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+  if (typeof text === "string") {
+    var array = text.split(' ');
+    var newarray = [];
+    for (let i=0;i<array.length;i++) {
+      let single_text = MORSE_CODE[array[i]];
+      newarray.push(single_text);
+    }
+    // convert to string
+    let newstring = newarray.toString();
+    // remove all commas from the newly created string
+    let editedstring = newstring.replace(/,,,/g, ' ');
+    let furthereditedstring = editedstring.replace(/,/g, '');
+    // use trim to remove white spaces on both ends of string
+    let value = furthereditedstring.trim();
+    return value;
+  }
+  else {
+    throw Error ("Please provide a morse string");
+  }
+}
 
 module.exports = morse;
