@@ -78,6 +78,7 @@ function morse(text) {
       if (countSpace >= 2){
         answer += " ";
       }
+      
       countSpace = 0;
       answer += MORSE_CODE[textArray[i]];
     }
