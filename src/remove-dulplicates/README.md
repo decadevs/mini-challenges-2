@@ -14,6 +14,7 @@ Create a function that returns an object with the same keys, but each string can
 ```json
 {
   "1": ["C"],
+
   "2": ["A", "B", "D"]
 }
 ```
