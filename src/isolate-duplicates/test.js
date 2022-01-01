@@ -1,4 +1,4 @@
-const isolateDuplicates = require(".");
+const isolateDuplicates = require("./index.js");
 
 describe("Find Duplicates", () => {
   test("Only strings allowed", () => {
