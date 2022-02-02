@@ -58,6 +58,33 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+  //Check for the condition of empty text passed
+  if (text === '') {
+  return ''
+  }
+  //Check for the condition of invalid string passed as text
+  if (text == '') {
+  throw "Please provide a morse string"
+  }
+
+
+  //Convert the text string to word array using trim and split
+  let wordsArray = text.trim().split(/   +/)
+  //Use variables decoded to store the decoded morse and tmpArr to store array as you go through
+  let decoded = '', tmpArr = []
+  //Loop through the text to decode the morse code
+  for (let char of wordsArray) {
+    tmpArr = char.split(' ')
+    tmpArr.every((a) => decoded += MORSE_CODE[a])
+    decoded += ' '
+
+  }
+
+  decoded = decoded.trim()
+
+  return decoded
+
+  }
 
 module.exports = morse;
