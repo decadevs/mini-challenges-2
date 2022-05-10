@@ -58,6 +58,52 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) 
+{
+  // Array of characters
+  let convertedWordArray = [];
+  // Temporary array to store characters
+  let temp = [];
+  
+  for (let i = 0; i < text.length; i++)
+  {
+
+    // Identify word spaces
+    if (text[i] == " " && text[i + 1] == " " && text[i + 2] == " ")
+    {
+      convertedWordArray.push(" ");  
+      // Skip the word space identifier
+      i = i + 2;
+    }
+    else if (text[i] !== " " && text[i] !== "\0") 
+    {
+
+        temp.push(text[i]);
+        console.log(temp)
+     
+    }
+    else 
+    {
+
+        // Push identified characters in
+        console.log(temp)
+        console.log(i)
+        convertedWordArray.push(MORSE_CODE[temp[i]]);
+        // for (let j = 0; j < temp.length; j++){
+        //   temp = temp.concat(temp[i])
+        // }
+        // temp.length = 0
+        console.log(temp)
+     
+        console.log(convertedWordArray.join(""));
+    }
+  
+  }
+  return convertedWordArray.join("");
+}
+
+console.log(morse("-.. . -.-. .-   -.. . ...-") );
 
 module.exports = morse;
+
+
