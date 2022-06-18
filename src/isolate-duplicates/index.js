@@ -9,28 +9,23 @@ function isolateDuplicates(text)
   let newText = "", isolateCount = 0;
   for (c of text)
   {
-    //recognize character repetition (case insensitive)
     if (String(runningCount[0]).toUpperCase() === String(c).toUpperCase())
     {
       runningCount.push(c);
       if (runningCount.length > 2 && isolating === false)
       {
-        //begin isolating repeated character. Restart running count
         isolating = true;
         runningCount = [c];
       }
       else if (isolating === false)
       {
-        //repetition has only happened once- add character to result
         newText += c;
       }
     }
     else
     {
-      //no repetition
       if (isolating === true)
       {
-        //repetition has ended- stop isolating characters
         newText += '[' + runningCount.join('') + ']';
         isolateCount++;
         isolating = false;
@@ -39,7 +34,7 @@ function isolateDuplicates(text)
       newText += c;
     }
   }
-  //isolation may still be ongoing at end of text
+  //text might end with repetition
   if (isolating === true)
   {
     newText += '[' + runningCount.join('') + ']';

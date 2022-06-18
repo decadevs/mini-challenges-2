@@ -8,20 +8,18 @@ function removeDuplicates(obj)
     for (let i = 0; i < arr.length; i++)
     {
       let str = arr[i];
-      if (alreadyAppeared[str]?.length)
+      let lastEntry = alreadyAppeared[str];
+      if (lastEntry?.length)
       {
-        //go back to previous occurrence
-        let lastEntry = alreadyAppeared[str];
+        /* same array- mark current duplicate for removal and skip ahead
+        otherwise mark previous occurrence for removal */
         if (lastEntry[0] === key)
         {
-          //same array- mark duplicate for removal and skip ahead
           obj[key][i] = null;
           continue;
         }
-        //otherwise mark previous occurrence for removal
         obj[lastEntry[0]][lastEntry[1]] = null;
       }
-      //make note of this occurrence unless skipped
       alreadyAppeared[str] = [key, i];
     }
   }
