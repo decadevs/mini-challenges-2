@@ -9,7 +9,7 @@ function removeDuplicates(obj)
     {
       let str = arr[i];
       let lastEntry = alreadyAppeared[str];
-      if (lastEntry?.length)
+      if (lastEntry && lastEntry.length)
       {
         /* same array- mark current duplicate for removal and skip ahead
         otherwise mark previous occurrence for removal */
