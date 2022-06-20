@@ -1,3 +1,5 @@
+const { collapseTextChangeRangesAcrossMultipleVersions } = require("typescript");
+
 const MORSE_CODE = {
   "-.-.--": "!",
   ".-..-.": '"',
@@ -58,6 +60,27 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+//("-.. . -.-. .-   -.. . ...-")).toBe("DECA DEV")
+
+function morse(text) {
+  
+  if(typeof text!=="string") throw new Error("Please provide a morse string")
+  return text
+  .split("   ") // get word code 3 spaces apart
+  .map(word => word
+                .split(" ") // get character code 1 spaces apart
+                .map(character => MORSE_CODE[character]) // decode Morse code character
+                .join('')
+   )
+   .join(' ') // add spaces between words 
+   .trim()
+
+
+}
+
+
+
+
 
 module.exports = morse;
+
