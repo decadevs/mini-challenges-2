@@ -1,6 +1,6 @@
 /**
  * @param {string} text The string of brackets.
- * @returns {[string, number]} The duplicates in brackets and total duplicates. 
+ * @returns {[string, number]} The array of isolated duplicates and total duplicates. 
  */
 
 function isolateDuplicates(text) {

@@ -27,6 +27,5 @@ function removeDuplicates(obj) {
   return orderedObj;
 
 }
-  
-  module.exports = removeDuplicates;
-  
+
+module.exports = removeDuplicates;
