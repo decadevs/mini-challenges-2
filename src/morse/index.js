@@ -58,6 +58,34 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+  let dictionary = new Map(MORSE_CODE);
+  let morse_char = " ";
+  let translation = "";
+
+  for(let i = 0; i < text.length; i++){
+    
+    if(text[i] == " "){
+      
+      if(text.substr(i, 3) == (" "+" "+" ")){
+        
+        translation += " ";
+        i += 3;
+      
+      }else{
+        //single space ends a letter; so check dict for match
+        
+        translation += dictionary.get(morse_char);
+
+      } 
+    
+    }else{
+
+      morse_char += text[i];
+    
+    }
+
+  }
+}
 
 module.exports = morse;
