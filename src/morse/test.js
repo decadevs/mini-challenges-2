@@ -1,4 +1,4 @@
-const morseToText = require(".");
+const morseToText = require("./index.js");
 
 describe("Morse assumptions", () => {
   test("it returns an empty string untouched", () => {
