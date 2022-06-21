@@ -5,17 +5,21 @@
   "main": "jest",
   "scripts": {
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "prepare": "husky install"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@types/jest": "^25.2.1",
-    "jest": "^25.4.0",
-    "prettier": "^2.0.5"
+    "@types/jest": "^28.1.2",
+    "husky": "^8.0.1",
+    "jest": "^28.1.1",
+    "prettier": "^2.7.1",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.7.4"
   },
   "volta": {
-    "node": "12.16.2"
+    "node": "16.14.2"
   }
 }
