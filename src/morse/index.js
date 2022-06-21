@@ -54,10 +54,21 @@ const MORSE_CODE = {
   "--..": "Z",
   "..--.-": "_",
   "...---...": "SOS",
-};
+  Object.freeze(MORSE_CODE);
 
-Object.freeze(MORSE_CODE);
+function morse(text) {
+  if (typeof text !== "string")throw new Error("Provide a morse string"
+  return text
+   .split(" ")
+   .map(word => word
+        .split(" ")
+        .map(character => MORSE_CODE[character])
+        .join('')
+    )
+    .join(' ')
+    .trim( )
+}
 
-function morse(text) {}
+}
 
 module.exports = morse;
