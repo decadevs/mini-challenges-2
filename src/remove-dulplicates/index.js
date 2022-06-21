@@ -1,39 +1,29 @@
 
- const obj = {
-  "1": ["C", "F", "G"],
-  "2": ["A", "B", "C"],
-  "3": ["A", "B", "D"],
-};
 
 function removeDuplicates(obj) {
+  const arr_keys = []
 
-  const sortedKeys = Object.keys(obj);
-  const keys = sortedKeys.reverse();
+  const obj_duplicates = {};
+  let sorted_arr = [];
 
-  const duplicates = [];
-  const noDuplicates = {};
-
-  for (let i = 0; i < keys.length; i++) {
-    for (let j = 0; j < obj[keys[i]].length; j++) {
-      if (!duplicates.includes(obj[keys[i]][j])) {
-        if (noDuplicates[keys[i]] === undefined) {
-          noDuplicates[keys[i]] = [];
-        }
-        noDuplicates[keys[i]][j] = obj[keys[i]][j];
-        duplicates.push(obj[keys[i]][j]);
-      }
-    }
-
-    if (noDuplicates[keys[i]] === undefined) {
-    } else {
-      noDuplicates[keys[i]] = noDuplicates[keys[i]].filter(
-        (el) => el !== undefined
-      );
-    }
+  for(let key in obj){
+      arr_keys.push(key)
   }
+  arr_keys.reverse().forEach((key) => {
+      //for every array in the object re-assign its value after removing depulicate
+    obj[key] = [...new Set(obj[key])];
+      //for every character in each array before assigning it as key to the object check if its value is true
+    obj[key].forEach((char) => {
+      if (!obj_duplicates[char]) {
+        obj_duplicates[char] = true;
+       sorted_arr.push(char);
+      }
+    });
+    obj[key] = sorted_arr;
 
-  return noDuplicates;
-   }
-
+   sorted_arr = [];
+  });
+  return obj;
+}
 module.exports = removeDuplicates;
 
