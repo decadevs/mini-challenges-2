@@ -17,5 +17,13 @@
   },
   "volta": {
     "node": "12.16.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anthonyponplex/mini-challenges-2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Anthonyponplex/mini-challenges-2/issues"
+  },
+  "homepage": "https://github.com/Anthonyponplex/mini-challenges-2#readme"
 }
