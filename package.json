@@ -12,7 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^25.2.1",
-    "jest": "^25.4.0",
+    "jest": "^25.5.4",
     "prettier": "^2.0.5"
   },
   "volta": {
