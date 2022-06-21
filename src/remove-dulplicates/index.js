@@ -19,7 +19,7 @@ for(let letter of keyvalues){
 let newOrder = {};
     for (let i = 0; i < keys.length; i++) {
         key = keys[i];
-        values = newArr[sorted[i]];
+        values = newArr[key];
         newOrder[key] = values;
     }
     return newOrder;
