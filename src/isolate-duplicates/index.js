@@ -47,10 +47,11 @@ function isolateDuplicates(text) {
       }
     }
 
-    return (finalValue = [result, countDuplicate]);
+    return ([result, countDuplicate]);
   }
  }
-
+let data = "aaaabbcdefffffffg"
+ console.log(isolateDuplicates(data))
  module.exports = isolateDuplicates;
 
 
