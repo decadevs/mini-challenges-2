@@ -1,0 +1,31 @@
+// function isolateDuplicates(text)
+// {
+//   let store = []
+//   let count = 0;
+//   let duplicates = 0;
+//   for(let i = 0; i < text.length; i++)
+//   {
+//     store.push(text[i])
+//     if(text[i] === text[i+1])
+//     {
+//       if(count === 1)
+//       {
+//         store.push("[")
+//         duplicates++;
+//       }
+//       count++
+//   }
+//   else if(text[i] !== text[i+1] || i == text.length - 1 && count > 1)
+//   {
+//      count = 0;
+//     store.push("]")
+//   }
+//   else{
+//     count = 0;
+//   }
+
+// }
+// return [store.join(""), duplicates]
+// }
+// console.log(isolateDuplicates("aaa"))
+
