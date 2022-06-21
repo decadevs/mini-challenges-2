@@ -58,6 +58,37 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+  if (text === '') return ''
+  if(typeof text !== 'string')
+  return 'please provide a morse code';
 
+  const input = text.trim()
+  let words = text.split(/\s{3,}/)
+  console.log(words)
+
+  let output = ''
+
+  words.forEach(word => {
+    word.split(' ').forEach((char) => {
+      output+= MORSE_CODE[char]
+    })
+    output+= ''
+  });
+
+  let result = output.trim('')
+
+result.split('').map(value => {
+    if (value === undefined){
+      value = ''
+      result.push(' ')
+      return value
+    }
+  })
+
+return result
+}
+
+
+console.log(morse("   .   . "));
 module.exports = morse;
