@@ -58,6 +58,19 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+  if (typeof text !== 'string') throw new Error('Enter new morse code')
+  let total = '';
+  let input = text.trim();
+  let words = input.split('   ');
+
+  words.forEach((word) => {
+    word.split(' ').forEach((char) => {
+     total += MORSE_CODE[char];
+    })
+   total += ' ';
+  })
+  return total.trim();
+}
 
 module.exports = morse;
