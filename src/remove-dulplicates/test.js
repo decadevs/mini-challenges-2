@@ -1,4 +1,4 @@
-const removeDuplicates = require(".");
+const removeDuplicates = require("./index");
 
 describe("Many duplicates", () => {
   test("#1", () => {
