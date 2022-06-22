@@ -1,12 +1,11 @@
 function isolateDuplicates(text) {
   if(arguments.length < 1 || typeof(text) != "string"){
-    throw "please enter a valid string"
+    throw "Please enter a valid string"
   }
 
   let newArr = []
   let multiCount = 0;
   let universalCount = 0;
-
   text = text.split("");
   for(let i = 0; i < text.length; i++){
     newArr.push(text[i])
@@ -28,5 +27,4 @@ function isolateDuplicates(text) {
   return[newArr.join(""),universalCount]
 }
 
-console.log(isolateDuplicates('qqwhgehjelidgddskjdhshslisddzhjsaassss'))
 module.exports = isolateDuplicates;
