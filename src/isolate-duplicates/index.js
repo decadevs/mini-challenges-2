@@ -1,35 +1,40 @@
-function isolateDuplicates(text) {
-   //split the string input to get an array
-   
-    const myArr = text.split("");
-    //console.log(myArr);
-    let len = text.length;
-    //loop through to find duplicate alphabet in the array
-    //if 
-   for(let i =2; i=len; i++){
-      if(myArr[i-2]=== myArr[i] && myArr[i-1] === myArr[i]){
-         let j = i;
-         while(myArr[j+1]=== myArr[j]){
-            j++;
-         }
-         myArr.splice(i,0,'[');
-         myArr.splice(j+2,0,']');
-         i = j+1;
-      }
+
+
+ function isolateDuplicates(text) {
+   if(text.length <1 || typeof(text) != "string"){
+     throw "Please enter a valid string"
    }
-//  const duplicate = [];
-//  let len = text.length;
-//  for(let i = 0; i<len-1; i++){
-//     for(let j=i+1; j<len; j++) {
-//       if(myArr[i]===myArr[j]){
-//          return duplicate.push(myArr[i])
-//       }
-//     }
-//  }  
- return myArr.join('');
+   let newArr= []
+   let count= 0;
+   let total= 0
+   // convert string to array
+   text= text.split('');
+   //loop through the array index to find duplicate
+   //push second duplicate if available to bracket
+   for(let i=0; i < text.length; i++){
+     newArr.push(text[i])
+     if(text[i+1] != undefined && text[i].toLowerCase() == text[i+1].toLowerCase()){
+       count++
+       if(count==2){
+         newArr.push('[')
+         total++
+       }
+ 
+     }else if(text[i+1] != undefined && text[i].toLowerCase() !== text[i+1].toLowerCase() || i == text.length-1){
+       if(count > 1){
+         newArr.push(']')
+       }
+       count= 0
+     }
+   }
+ 
+   return [newArr.join(''), total]
+ }
 
-}
 
 
-isolateDuplicates("aaaabbcdefffffffg")
+console.log(isolateDuplicates("aabbccddeeffgg"));
+
+
+console.log(isolateDuplicates("aaaabgbcdefffffffg"));
 module.exports = isolateDuplicates;
