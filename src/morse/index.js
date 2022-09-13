@@ -58,6 +58,23 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+    
+  let kuch = [];
+  
+  let morse = text.split(" ");
+  
+  console.log(morse)
+  for( let i of morse){
+
+    if (i === MORSE_CODE.key){
+
+      kuch.push(MORSE_CODE.value);
+
+    }
+  }
+  console.log(kush)
+  return kuch.join(',')
+}
 
 module.exports = morse;
