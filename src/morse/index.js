@@ -75,7 +75,7 @@ function morse(text) {
     finalCode += ' ';
   })
 
-  return finalCode.trim()
+  return finalCode.trim();
 };
 
 

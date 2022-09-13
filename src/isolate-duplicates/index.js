@@ -18,7 +18,7 @@ function isolateDuplicates(text) {
         if (dupliCount > 1) {
           newArr.push(']')
         }
-        dupliCount = 0;
+        dupliCount = 0
       }
     }
     return [newArr.join(''), totalCount];

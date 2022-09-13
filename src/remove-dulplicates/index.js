@@ -5,11 +5,11 @@ function removeDuplicates(obj) {
       obj[key] = [...newValues];
     }
   
-    let myValues = obj[keys[0]];
+    let myValues = obj[keys[0]]
   
     keys.slice(1).forEach (function (key) {
       obj[key] = obj[key].filter(element => !myValues.includes(element));
-      myValues = myValues.concat(obj[key]);
+      myValues = myValues.concat(obj[key])
     });
   
     return obj;
