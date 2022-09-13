@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-function isolateDuplicates(text) {}
-=======
 const { testResultsProcessor } = require("../../jest.config");
 function isolateDuplicates(text) {
 //loop through and check if a[i]==a[i+1]==a[i+2]
@@ -40,8 +37,6 @@ let count=0;
         result+= "]";
     }
     // result= result.slice(1,result.length);
-    return [result, count]
-}
->>>>>>> Stashed changes
+    return [result, count]}
 
 module.exports = isolateDuplicates;
