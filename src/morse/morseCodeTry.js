@@ -64,11 +64,10 @@ function morse(text) {
     if (text==="") return text
     if(text=="") throw ("Please provide a morse string");
   
-  
     let trimedCode = text.trim();
-  
-    
     let sections = trimedCode.split("   ");
+
+  
     let leters = sections.map((data) => {
       return data.split(" ");
     });
@@ -80,7 +79,6 @@ function morse(text) {
 
 
     let fulword = "";
-  
     convert.forEach((element) => {
       let word = "";
       for (let i = 0; i < element.length; i++) {
@@ -93,5 +91,5 @@ function morse(text) {
     return fulword.trim();
 }
 
-module.exports = morse;
+
 

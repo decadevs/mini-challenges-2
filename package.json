@@ -3,7 +3,11 @@
   "version": "2.0.0",
   "description": "Lab 1 - challenges",
   "main": "jest",
+  
   "scripts": {
+    "morse":"node ./src/morse/morseCodeTry.js",
+    "dup":" node isoDuplicateTry.js",
+    "start": "node removeDuplicate.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "prepare": "husky install"
@@ -23,3 +27,4 @@
     "node": "16.14.2"
   }
 }
+
