@@ -4,19 +4,6 @@ let incom = text
 
 let str = ''
 
-
-
-// for (let index = 0; index <=text.length; index++) {
-//     let element = num[index];
-//     if((typeof(element))=='number') {
-//         throw("Please enter a valid string")
-//     }else{
-//         // throw('Please enter a valid string')
-//     }
-
-
-// }
-
 for (let i = 0;i<=incom.length-1;i++){
     if(typeof(num[i]) =='string'){
         let current = String(incom).charAt(i).toLocaleLowerCase()

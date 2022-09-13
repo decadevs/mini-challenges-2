@@ -59,30 +59,37 @@ const MORSE_CODE = {
 Object.freeze(MORSE_CODE);
 
 function morse(text) {
-  // note words are seperated with three spaces
-  let trimedCode = text;
-  let sections = trimedCode.split("   ");
-  let leters = sections.map((data) => {
-    return data.split(" ")
-  });
-let convert = []
+    // note words are seperated with three spaces
+    
+    if (text==="") return text
+    if(text=="") throw ("Please provide a morse string");
+  
+    let trimedCode = text.trim();
+    let sections = trimedCode.split("   ");
+
+  
+    let leters = sections.map((data) => {
+      return data.split(" ");
+    });
+  
+  let convert = []
   leters.map((data) => {
     convert.push(data.map((char) => MORSE_CODE[char]?MORSE_CODE[char]:''));
   });
 
 
-  let fulword = "";
-
-  convert.forEach((element) => {
-    let word = "";
-    for (let i = 0; i < element.length; i++) {
-      let char = element[i];
-      word += char;
-    }
-    fulword += word + " ";
-  });
-  return fulword;
-
+    let fulword = "";
+    convert.forEach((element) => {
+      let word = "";
+      for (let i = 0; i < element.length; i++) {
+        let char = element[i];
+        word += char;
+      }
+      fulword += word+" ";
+    });
+    
+    return fulword.trim();
 }
 
-console.log(morse("...-..- ..... .-.-.- ----- --...   .--. . .-.    -... --- - - .-.. ."))
+
+
