@@ -55,9 +55,30 @@ const MORSE_CODE = {
   "..--.-": "_",
   "...---...": "SOS",
 };
-
 Object.freeze(MORSE_CODE);
-
-function morse(text) {}
+function morse(text) {
+  //if its not a string throw an error
+  if (typeof(text)!= "string"){
+    throw "Please provide a morse string";
+  }
+  //remove leading spaces
+  text= text.trim();
+  //return empty string as it is
+  if (text==""){
+    return "";
+  }
+  //split into words
+  text= text.split("   ");
+  //split into letters
+  text.forEach((elem,index) => text[index] = text[index].trim().split(" "));
+  //translate each letter
+  for (let i=0; i<text.length; i++){
+    text[i].forEach((elem,index) => text[i][index]= text[i][index].replace(text[i][index], MORSE_CODE[text[i][index]]));
+  }
+  //join into words
+  text.forEach((elem, index) => text[index]= text[index].join(""));
+  //join into sentence
+  return text.join(" ")
+}
 
 module.exports = morse;
