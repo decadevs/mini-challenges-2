@@ -58,6 +58,20 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+if (text === '')return ''
+  if (typeof text !== 'string')throw new Error ('please provide a morse string')
+  const input = text.trim ()
+  const words = input.split (/\s{3,}/)
+
+  let result = ''
+  words.forEach ((word) => {
+  words.split('').forEach((char) =>{
+    result += MORSE-CODE [char]
+  })
+  result += ''
+})
+return result . trim ()
+}
 
 module.exports = morse;
