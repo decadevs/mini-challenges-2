@@ -5,7 +5,8 @@ function isolateDuplicates(text) {
       if (typeof text != "string") {
         throw new Error("Please enter a valid string");
       }
-      let obj = {};
+  let obj = {};
+  
 
       for (let i = 0; i < text.length; i++) {
         let char = text[i];
