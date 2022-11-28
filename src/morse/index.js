@@ -58,6 +58,8 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+
+}
 
 module.exports = morse;

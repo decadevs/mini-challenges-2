@@ -1,3 +1,4 @@
-function removeDuplicates(obj) {}
+function removeDuplicates(obj) {
+}
 
 module.exports = removeDuplicates;
