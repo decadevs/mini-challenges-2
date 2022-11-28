@@ -58,6 +58,59 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+  if (typeof(text) != 'string') {
+    throw new Error("Please provide a morse string");
+  }
+  if (text == "" ) return ""
+  
+  let result = ""
+  let result1 = ""
 
+  text = text.trim()
+
+  if (text.includes('   ')) {
+    text = text.replace(/   /g, '[[]]')
+    text
+    // text = text.replace(/ /g, '')
+    text = text.split('[[]]')
+    console.log(text.length);
+    for (let i = 0; i < text.length; i++) {
+      let text1 = text[i].split(' ')
+      console.log(text1);
+      result = ""
+      for (let j=0; j<text1.length; j++) {
+        if (text1[j] == "") continue
+        result += MORSE_CODE[text1[j]]
+      }
+      result
+
+      if (i == text.length - 1) {
+        result1 += result
+      } else {
+        result1 += result + ' '
+      }
+    }
+    result1
+    
+    return result1.trim()
+
+  } else {
+   text = text.trim()
+
+    if (text[text.length - 1] == ' '){
+      text = text.replace(' ', '')
+    }
+    text = text.split(' ')
+
+    text
+
+    for (let i = 0; i < text.length; i++) {
+      result += MORSE_CODE[text[i]]
+    }
+    return result
+  }
+}
+
+console.log(morse("      ...---... -.-.--   - .... .   --.- ..- .. -.-. -.-   -... .-. --- .-- -.   ..-. --- -..-   .--- ..- -- .--. ...   --- ...- . .-.   - .... .   .-.. .- --.. -.--   -.. --- --. .-.-.-     "));
 module.exports = morse;
