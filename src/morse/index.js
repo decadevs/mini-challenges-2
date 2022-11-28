@@ -70,20 +70,18 @@ function morse(text) {
   text = text.trim()
 
   if (text.includes('   ')) {
-    text = text.replace(/   /g, '[[]]')
-    text
-    // text = text.replace(/ /g, '')
+
+    text = text.replace(/   /g, '[[]]') 
     text = text.split('[[]]')
-    console.log(text.length);
+    
     for (let i = 0; i < text.length; i++) {
       let text1 = text[i].split(' ')
-      console.log(text1);
       result = ""
+
       for (let j=0; j<text1.length; j++) {
         if (text1[j] == "") continue
         result += MORSE_CODE[text1[j]]
       }
-      result
 
       if (i == text.length - 1) {
         result1 += result
@@ -91,7 +89,6 @@ function morse(text) {
         result1 += result + ' '
       }
     }
-    result1
     
     return result1.trim()
 
@@ -102,8 +99,6 @@ function morse(text) {
       text = text.replace(' ', '')
     }
     text = text.split(' ')
-
-    text
 
     for (let i = 0; i < text.length; i++) {
       result += MORSE_CODE[text[i]]
