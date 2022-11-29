@@ -58,6 +58,13 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+  const str.toUppercaase().split("").map(el => {
+    return moresCode[el] ? morseCode[el] : el;
+  }) .join("");
+  })
+  console.log(convertToMorse('Disaster management'))
+
+}
 
 module.exports = morse;
