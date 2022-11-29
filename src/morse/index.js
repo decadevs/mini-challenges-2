@@ -58,6 +58,55 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+  // let output = ""
+  // let textSplit = text.split(" ")
+
+
+
+
+  // for(let i = 0; i < textSplit.length; i++){
+  //   if(i === ""){
+  //     output += " "
+  //   } else{
+  //     output += MORSE_CODE[textSplit[i]];
+  //   }
+  //    if(i === ""){
+  //   output += " "
+  // }
+  // }
+
+  // return output;
+
+    // morseCode = morseCode.trim();
+ if (typeof(text) != "string"){
+     throw "Please provide a morse string";
+   }
+   if (text == ""){
+     return "";
+   }
+
+   let trimmedText = text.trim();
+   const textArray = trimmedText.split(" ");
+   let result = '';
+   let counter = 0;
+
+   for (let i = 0; i<textArray.length; i++){
+     if (textArray[i] == "") {
+       counter += 1;
+     } else {
+       if (counter >= 2){
+         result += " ";
+       }
+       counter = 0;
+       result += MORSE_CODE[textArray[i]];
+     }
+   }
+   return result;
+
+}
+
+
+console.log(morse(""))
 
 module.exports = morse;
