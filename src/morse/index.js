@@ -103,6 +103,6 @@ function morse(text) {
 module.exports = morse;
 
 
-console.log(morse([]));
+//console.log(morse([]));
 //SOS! THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
 //SOS! THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
