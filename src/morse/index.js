@@ -58,6 +58,54 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+  if (!text) {
+    return '';
+  }
+  var arr = [];
+  if (typeof(text) != 'string') {
+    return "Please provide a morse string";
+  }
+  var newText = text.replace('   ',' ** ');
+  //console.log(newText)
+  var useText = newText.split(' ');
+  //console.log(useText)
+  if (useText == '') {
+    return '';
+  }else{
+    for (let i = 0; i < useText.length; i++) {
+      if (MORSE_CODE[useText[i]]) {
+          arr.push(MORSE_CODE[useText[i]]);
+      }else if(useText[i] == '**'){
+        arr.push(' ');
+      }else if(useText[i] == ''){
+        arr.push(' ');
+      }else{
+        return "Please provide a morse string";
+      }
+    
+  }
+
+  //console.log(arr)
+  //console.log('air'+arr[0]+arr[1]+arr[2]+"e")
+  for (let k = 0; k < arr.length; k++) {
+    if (arr[k] === ' ' && (arr[k+1] === ' ')) {
+      arr.splice(k,1);
+      //console.log('hhj')
+    }else{
+      //console.log(arr[k]+arr[k+1])
+    }
+    
+  }
+  return arr.join('').trim().replace('  ',' ');
+  }
+    
+}
+//var num = '...---...';
 
 module.exports = morse;
+
+
+//console.log(morse(".-"));
+//SOS! THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
+//SOS! THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
