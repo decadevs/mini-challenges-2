@@ -59,6 +59,9 @@ const MORSE_CODE = {
 Object.freeze(MORSE_CODE);
 
 function morse(text) {
+  if (!text) {
+    return '';
+  }
   var arr = [];
   if (typeof(text) != 'string') {
     return "Please provide a morse string";
@@ -103,6 +106,6 @@ function morse(text) {
 module.exports = morse;
 
 
-//console.log(morse([]));
+//console.log(morse(".-"));
 //SOS! THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
 //SOS! THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG.
