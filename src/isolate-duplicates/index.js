@@ -41,6 +41,6 @@ function isolateDuplicates(text) {
 
 }
 
-//module.exports = isolateDuplicates;
+module.exports = isolateDuplicates;
 
-console.log(isolateDuplicates('TttTTTTttttTTTTTTIIIIIiiiiiiiSSSSSSSSSTTTTAAAAAAAAAaaaaaaaaaSSSSSSSSSSKKKKKkkkkkk'))//boooopdedp
+//console.log(isolateDuplicates('TttTTTTttttTTTTTTIIIIIiiiiiiiSSSSSSSSSTTTTAAAAAAAAAaaaaaaaaaSSSSSSSSSSKKKKKkkkkkk'))//boooopdedp
