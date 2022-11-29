@@ -55,21 +55,3 @@ function removeDuplicates(obj) {
 
 module.exports = removeDuplicates;
 
-// var obj = {
-//     "432": ["A", "A", "B", "D"],
-//     "53": ["L", "G", "B", "C"],
-//     "236": ["L", "A", "X", "G", "H", "X"],
-//     "11": ["P", "R", "S", "D"]
-//   };
-//   "11": ["P", "R", "S"],
-//       "53": ["C"],
-//       "236": ["L", "X", "G", "H"],
-//       "432": ["A", "B", "D"],
-    
-// var objj = Object.entries(obj);
-//   console.log(objj)
-
-//   var ch = objj[3][1].includes(objj[2][1][1])
-//   console.log(ch)
-
-//console.log(removeDuplicates(obj))
