@@ -58,6 +58,20 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+  const words = text.trim().split("   ");
+    return words
+      .map((word) =>
+        word
+          .split(" ")
+          .map((code) => MORSE_CODE[code])
+          .join("")
+      )
+      .join(" ");
+}
+morse("-.. . -.-. .- -.. . ...-")
 
 module.exports = morse;
+
+const str = "a boy is a";
+console.log(str.trim());
