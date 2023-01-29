@@ -73,5 +73,4 @@ morse("-.. . -.-. .- -.. . ...-")
 
 module.exports = morse;
 
-const str = "a boy is a";
-console.log(str.trim());
+
