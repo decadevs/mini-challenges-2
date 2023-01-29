@@ -59,7 +59,7 @@ const MORSE_CODE = {
 Object.freeze(MORSE_CODE);
 
 function morse(text) {
-  const words = text.trim().split("   ");
+   let words = text.trim().split("   ");
     return words
       .map((word) =>
         word
