@@ -66,8 +66,8 @@ function morse(text) {
 
   for (let i = 0; i < letter.length; i++) {
     for (let j = 0; j < newArr.length; j++) {
-      if(letter[i] === newArr[j][1]){
-        newArr2.push(newArr[j][0])
+      if(letter[i] === newArr[j][0]){
+        newArr2.push(newArr[j][1])
       }
       
     }
