@@ -58,6 +58,20 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+  function morse(text) {
+    let letters = text.split('')
+    let morseCode = Object.entries(MORSE_CODE)
+    let result = []
+    for (let i = 0; i < words.length; i++) {
+      for (let j = 0; j < morseCode.length; j++) {
+        if(letters[i] === newArr[j][1]){
+          result.push(newArr[j][0])
+        }
+      }
+    }
+   return result.join(' ')
+  }
+}
 
 module.exports = morse;
