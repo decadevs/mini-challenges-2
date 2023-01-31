@@ -56,8 +56,24 @@ const MORSE_CODE = {
   "...---...": "SOS",
 };
 
-Object.freeze(MORSE_CODE);
-
-function morse(text) {}
+decodeMorse = function(morseCode){
+  morseCode = morseCode.trim();
+  let splitCode = morseCode.split('   ');
+  let result = [];
+  
+  for (let i = 0; i < splitCode.length; i++) {
+    let words = splitCode[i].split(' ');
+    for (let j = 0; j < words.length; j++) {
+      if (MORSE_CODE[words[j]]) {
+        result.push(MORSE_CODE[words[j]]);
+      }
+    }
+    
+    if (i !== splitCode.length - 1) {
+    result.push(' ');
+    }
+  }
+  return result.join('');
+}
 
 module.exports = morse;
