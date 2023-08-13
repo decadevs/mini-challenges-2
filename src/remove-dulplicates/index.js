@@ -6,8 +6,8 @@ function removeDuplicates(obj) {
     const prev = [];
 
     for(let i= 0; i < objKeys.length; i++){
-        let newArr = [];
-        let curr = obj[objKeys[i]];
+        let newArr = []; // Contain for all unique characters in each arrays in object.
+        let curr = obj[objKeys[i]]; // Current array in each object.
         
         for(let j = 0; j < curr.length; j++){
             if(i === 0){

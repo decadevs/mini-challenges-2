@@ -68,12 +68,12 @@ function morse(text) {
       const result = [];
 
       for(let i of arr){
-          let currWord = i.split(' ');
-          let curArr = []
-          for(let j of currWord){
-              curArr.push(MORSE_CODE[j])
+          let currInnerArr = i.split(' ');
+          let currChar = []
+          for(let j of currInnerArr){
+            currChar.push(MORSE_CODE[j])
           }
-          result.push(curArr.join(''))
+          result.push(currChar.join(''))
       }
 
       return result.join(' ').trim();
