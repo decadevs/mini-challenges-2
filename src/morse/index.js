@@ -58,6 +58,32 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+// Tip: A single space is used to separate the character codes and 3 spaces are used to separate words.
+
+function morse(text) {
+    
+    if(typeof text === 'string'){
+
+      const arr = text.split('   ');
+      const result = [];
+
+      for(let i of arr){
+          let currWord = i.split(' ');
+          let curArr = []
+          for(let j of currWord){
+              curArr.push(MORSE_CODE[j])
+          }
+          result.push(curArr.join(''))
+      }
+
+      return result.join(' ').trim();
+
+    }else if(text === ""){
+      return "";
+    }
+    else {
+      throw Error("Please provide a morse string");
+    }
+}
 
 module.exports = morse;
