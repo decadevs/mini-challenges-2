@@ -38,8 +38,8 @@ describe("Morse spec", () => {
   });
 
   test("it decodes letters with multiple spaces", () => {
-    expect(morseToText(" . ")).toBe("E");
     expect(morseToText("   .   . ")).toBe("E E");
+    expect(morseToText(" . ")).toBe("E");
     expect(
       morseToText(
         "      ...---... -.-.--   - .... .   --.- ..- .. -.-. -.-   -... .-. --- .-- -.   ..-. --- -..-   .--- ..- -- .--. ...   --- ...- . .-.   - .... .   .-.. .- --.. -.--   -.. --- --. .-.-.-     "
