@@ -69,11 +69,11 @@ function morse(text) {
 
       for(let i of arr){
           let currInnerArr = i.split(' ');
-          let currChar = []
+          let currChar = [];
           for(let j of currInnerArr){
             currChar.push(MORSE_CODE[j])
           }
-          result.push(currChar.join(''))
+          result.push(currChar.join(''));
       }
 
       return result.join(' ').trim();
